@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33295452032143050}
   - component: {fileID: 23273953067649284}
   - component: {fileID: 114302117339463516}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,8 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4811200421849130}
   - component: {fileID: 60315771575937558}
-  - component: {fileID: 251301170001486004}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046272444186972}
   - component: {fileID: 114939607704174362}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Western1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4422372169769178}
   - component: {fileID: 114756797695260634}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tile Layer 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,8 +84,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525253617002338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.79, y: 0.78, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4422372169769178}
   m_Father: {fileID: 0}
@@ -162,8 +161,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 53214605
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33295452032143050
 MeshFilter:
@@ -182,7 +181,7 @@ PolygonCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -279,21 +278,3 @@ MonoBehaviour:
   MapWidthInPixels: 2400
   MapHeightInPixels: 2400
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
---- !u!251 &251301170001486004
-PlatformEffector2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1426579566345992}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
