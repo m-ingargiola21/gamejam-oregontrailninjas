@@ -9,33 +9,34 @@ public class PlayerController : MonoBehaviour {
     public MovementState moveState;
     public bool IsFacingRight = true;
     public float MaxSpeed;
-    public float JumpForce = 700;
+    public float JumpForce = 100;
     public bool doubleJump = false;
     Rigidbody2D rigidbody2D;
+    public int Identifier;
 
-    Animator anim;
-    bool grounded = false;
+    //Animator anim;
+    public bool grounded = false;
     [SerializeField]
     Transform groundCheck;
-    float groundedRadius = 0.2f;
+    float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
 
 	// Use this for initialization
 	void Start () {
         rigidbody2D = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+      //  anim = GetComponent<Animator>();
 	}
 
     void FixedUpdate()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-        anim.SetBool("Ground", grounded);
+        //anim.SetBool("Ground", grounded);
         if (grounded)
             doubleJump = false;
-        anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
+        //anim.SetFloat("vSpeed", rigidbody2D.velocity.y);
 
-        float move = Input.GetAxis("Horizontal");
-        anim.SetFloat("Speed", Mathf.Abs(move));
+        float move = Input.GetAxis("Horizontal"+Identifier);
+        //anim.SetFloat("Speed", Mathf.Abs(move));
         rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
 
         if (move < 0 && IsFacingRight)
@@ -46,13 +47,25 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        if ((grounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space))
+        if (rigidbody2D.velocity.y > 6f)
+            rigidbody2D.AddForce(new Vector2(0, -JumpForce));
+
+        if ((grounded || !doubleJump) && Input.GetButtonDown("Jump"+Identifier))
         {
-            anim.SetBool("Ground", false);
-            rigidbody2D.AddForce(new Vector2(0, JumpForce));
+            //anim.SetBool("Ground", false);
+            if (rigidbody2D.velocity.y < (-MaxSpeed/2))
+            {
+                rigidbody2D.AddForce(new Vector2(0, 2 * JumpForce));
+                Debug.Log("I'm Falling TOO FAST");
+            }
+            else
+                rigidbody2D.AddForce(new Vector2(0, JumpForce));
+            
+
             if (!doubleJump && !grounded)
             {
                 doubleJump = true;
+                //Debug.Log("i shouldn't be able to jump");
             }
         }
     }
