@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537287308855894}
   - component: {fileID: 114135227130188076}
+  - component: {fileID: 114748254624250106}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,3 +55,16 @@ MonoBehaviour:
   spawnpoints: []
   Gravestone: {fileID: 50617272806981974, guid: 20d4fc9adbfc11046bccc9ba8c5c6409,
     type: 2}
+--- !u!114 &114748254624250106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229716466695104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30f7defb80dedb4881828ac42e28890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CowboyHealth: {fileID: 0}
+  NinjaHealth: {fileID: 0}

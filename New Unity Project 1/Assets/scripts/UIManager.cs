@@ -20,7 +20,9 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (cboy != null)
         CowboyHealth.fillAmount = cboy.health;
+        if(ninja != null)
         NinjaHealth.fillAmount = ninja.health;
 	}
 }

@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
                 Vector3 deathLoc = cowboy.gameObject.transform.position;
                 cowboy.enabled = false;
                 cowboy.gameObject.SetActive(false);
-                Destroy(ninja.gameObject);
+                Destroy(cowboy.gameObject);
                 Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
             }
     }
