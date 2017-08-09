@@ -52,7 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0794fdff408edf4cbd2e6bca0ef6446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnpoints: []
+  spawnpoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Gravestone: {fileID: 50617272806981974, guid: 20d4fc9adbfc11046bccc9ba8c5c6409,
     type: 2}
 --- !u!114 &114748254624250106
@@ -68,3 +72,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CowboyHealth: {fileID: 0}
   NinjaHealth: {fileID: 0}
+  cowboymarks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ninjamarks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

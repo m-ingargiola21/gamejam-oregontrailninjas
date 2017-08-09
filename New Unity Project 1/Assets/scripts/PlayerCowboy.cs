@@ -12,7 +12,7 @@ public class PlayerCowboy : MonoBehaviour
     Rigidbody2D rigidbody2D;
     public int Identifier;
 
-    public float health = 1;
+    public float Health = 1;
 
     Animator anim;
     public bool grounded = false;
@@ -20,6 +20,11 @@ public class PlayerCowboy : MonoBehaviour
     Transform groundCheck;
     float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
+
+    private void Awake()
+    {
+        Health = 1;
+    }
 
     // Use this for initialization
     void Start()

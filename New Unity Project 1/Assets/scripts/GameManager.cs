@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour {
     Transform[] spawnpoints;
     public Rigidbody2D Gravestone;
 
+    public int Cowboykills = 0;
+    public int Ninjakills = 0;
+    public int MaxKills = 10;
 	// Use this for initialization
 	void Start () {
         ninja = FindObjectOfType<PlayerNinja>();
@@ -19,22 +22,25 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(ninja != null)
-            if (ninja.health <= 0)
+            if (ninja.Health <= 0)
             {
                 Vector3 deathLoc = ninja.gameObject.transform.position;
-                ninja.enabled = false;
-                ninja.gameObject.SetActive(false);
-                Destroy(ninja.gameObject); 
+                
+                Cowboykills++;
                 Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                ninja.gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
+                ninja.Health = 1;
             }
         if(cowboy != null)
-            if (cowboy.health <= 0)
+            if (cowboy.Health <= 0)
             {
                 Vector3 deathLoc = cowboy.gameObject.transform.position;
-                cowboy.enabled = false;
-                cowboy.gameObject.SetActive(false);
-                Destroy(cowboy.gameObject);
+                Ninjakills++;
                 Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                cowboy.gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
+                cowboy.Health = 1;
             }
+        Debug.Log(Cowboykills);
+        Debug.Log(Ninjakills);
     }
 }

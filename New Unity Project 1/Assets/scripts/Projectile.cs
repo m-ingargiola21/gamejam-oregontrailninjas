@@ -19,11 +19,11 @@ public class Projectile : MonoBehaviour {
     {
         if (col.gameObject.tag == "Ninja")
         {
-            FindObjectOfType<PlayerNinja>().health -= .10f;
+            FindObjectOfType<PlayerNinja>().Health -= .10f;
         }
         else if (col.gameObject.tag == "Cowboy")
         {
-            FindObjectOfType<PlayerCowboy>().health -= .10f;
+            FindObjectOfType<PlayerCowboy>().Health -= .10f;
         }
         Destroy(this.gameObject);
     }

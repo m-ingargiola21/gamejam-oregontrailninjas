@@ -12,7 +12,7 @@ public class PlayerNinja : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public int Identifier;
 
-    public float health = 1;
+    public float Health = 1;
 
     Animator anim;
     public bool grounded = false;
@@ -21,6 +21,10 @@ public class PlayerNinja : MonoBehaviour
     float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
 
+    private void Awake()
+    {
+        Health = 1;
+    }
     // Use this for initialization
     void Start()
     {
