@@ -23,10 +23,12 @@ public class NinjaStar : MonoBehaviour
 
     void Update()
     {
+        
         // If the fire button is pressed...
         if (Input.GetButtonDown("Fire1_P2"))
         {
             // ... set the animator Shoot trigger parameter and play the audioclip.
+
             anim.SetBool("Shooting", true);
             //audio.Play();
 
@@ -46,5 +48,6 @@ public class NinjaStar : MonoBehaviour
                 Destroy(bulletInstance.gameObject, 2);
             }
         }
+        
     }
 }

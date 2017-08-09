@@ -84,26 +84,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174839395584672}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.14257786, w: 0.9897836}
   m_LocalPosition: {x: 0, y: -0.103, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4510034296660614}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.394001}
 --- !u!4 &4849680798403630
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364257522326430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.31338105, w: 0.9496275}
   m_LocalPosition: {x: 0.113, y: -0.026, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4510034296660614}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.526}
 --- !u!50 &50209915065353128
 Rigidbody2D:
   serializedVersion: 4
@@ -207,11 +207,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFacingRight: 1
-  MaxSpeed: 3
-  JumpForce: 200
+  MaxSpeed: 4
+  JumpForce: 250
   doubleJump: 0
+  rigidbody2D: {fileID: 0}
   Identifier: 2
-  health: 100
+  health: 1
   grounded: 1
   groundCheck: {fileID: 4513008690196636}
   whatIsGround:

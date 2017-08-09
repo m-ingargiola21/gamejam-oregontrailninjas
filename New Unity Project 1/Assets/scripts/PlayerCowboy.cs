@@ -12,7 +12,7 @@ public class PlayerCowboy : MonoBehaviour
     Rigidbody2D rigidbody2D;
     public int Identifier;
 
-    public int health = 100;
+    public float health = 1;
 
     Animator anim;
     public bool grounded = false;

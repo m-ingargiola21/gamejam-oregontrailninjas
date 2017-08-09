@@ -210,7 +210,7 @@ MonoBehaviour:
   JumpForce: 200
   doubleJump: 0
   Identifier: 1
-  health: 100
+  health: 1
   grounded: 1
   groundCheck: {fileID: 4289237525252304}
   whatIsGround:

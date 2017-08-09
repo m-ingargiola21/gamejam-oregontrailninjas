@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	
 	}
 
 
@@ -19,11 +19,11 @@ public class Projectile : MonoBehaviour {
     {
         if (col.gameObject.tag == "Ninja")
         {
-            FindObjectOfType<PlayerNinja>().health -= 10;
+            FindObjectOfType<PlayerNinja>().health -= .10f;
         }
         else if (col.gameObject.tag == "Cowboy")
         {
-            FindObjectOfType<PlayerCowboy>().health -= 10;
+            FindObjectOfType<PlayerCowboy>().health -= .10f;
         }
         Destroy(this.gameObject);
     }

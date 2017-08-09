@@ -9,10 +9,10 @@ public class PlayerNinja : MonoBehaviour
     public float MaxSpeed;
     public float JumpForce = 100;
     public bool doubleJump = false;
-    Rigidbody2D rigidbody2D;
+    public Rigidbody2D rigidbody2D;
     public int Identifier;
 
-    public int health = 100;
+    public float health = 1;
 
     Animator anim;
     public bool grounded = false;
@@ -33,7 +33,8 @@ public class PlayerNinja : MonoBehaviour
         if (grounded)
             doubleJump = false;
 
-
+        if (Input.GetAxis("Horizontal" + Identifier) > 0)
+            anim.SetBool("Shooting", false);
         float move = Input.GetAxis("Horizontal" + Identifier);
         anim.SetFloat("Speed", Mathf.Abs(move));
         rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
@@ -49,7 +50,7 @@ public class PlayerNinja : MonoBehaviour
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
         anim.SetBool("Ground", grounded);
 
-        if (rigidbody2D.velocity.y > 6f)
+        if (rigidbody2D.velocity.y > 8f)
             rigidbody2D.AddForce(new Vector2(0, -JumpForce));
 
         if ((grounded || !doubleJump) && Input.GetButtonDown("Jump" + Identifier))
@@ -70,6 +71,7 @@ public class PlayerNinja : MonoBehaviour
                 //Debug.Log("i shouldn't be able to jump");
             }
         }
+        
     }
 
     void Flip()
