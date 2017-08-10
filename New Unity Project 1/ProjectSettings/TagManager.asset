@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Cowboy
   - Ninja
+  - Player1
+  - Player2
+  - Player3
+  - Player4
+  - GraveStone
   layers:
   - Default
   - TransparentFX
@@ -17,7 +22,7 @@ TagManager:
   - 
   - Background
   - ForeGround
-  - 
+  - Projectile
   - 
   - 
   - 

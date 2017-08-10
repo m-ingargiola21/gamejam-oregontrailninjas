@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
-    void OnCollisionEnter2D(Collision2D col)
+    public PlayerController whoShotMe;
+    public int GraveSpeed;
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Ninja")
+        for (int i = 0; i < 4; i++)
         {
-            FindObjectOfType<PlayerNinja>().Health -= .10f;
+            if (col.gameObject.tag == ("Player" + i.ToString()))
+            {
+                if (col.gameObject.GetComponent<PlayerController>().Health - .1f <= 0)
+                    whoShotMe.KillCount++;
+                col.gameObject.GetComponent<PlayerController>().Health -= .1f;
+                Destroy(this.gameObject);
+            }
         }
-        else if (col.gameObject.tag == "Cowboy")
+        if (col.gameObject.tag == "GraveStone")
         {
-            FindObjectOfType<PlayerCowboy>().Health -= .10f;
+            col.GetComponent<Rigidbody2D>().AddForce(this.gameObject.GetComponent<Rigidbody2D>().velocity * GraveSpeed);
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
     }
 }

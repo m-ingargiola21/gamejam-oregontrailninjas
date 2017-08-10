@@ -5,38 +5,47 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
     [SerializeField]
-    Image CowboyHealth;
+    Image Player1Health;
     [SerializeField]
-    Image NinjaHealth;
+    Image Playe2Health;
     [SerializeField]
-    Image[] cowboymarks;
+    Image[] Player1Marks;
     [SerializeField]
-    Image[] ninjamarks;
-    PlayerCowboy cboy;
-    PlayerNinja ninja;
+    Image[] Player2Marks;
+    PlayerController[] playersTemp;
+    public PlayerController[] players;
     GameManager gm;
     // Use this for initialization
     void Start () {
-        cboy = FindObjectOfType<PlayerCowboy>();
-        ninja = FindObjectOfType<PlayerNinja>();
+        players = new PlayerController[4];
+        playersTemp = FindObjectsOfType<PlayerController>();
+        for (int i = 0; i < playersTemp.Length; i++)
+        {
+            players[playersTemp[i].Identifier - 1] = playersTemp[i];
+        }
         gm = GetComponent<GameManager>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (cboy != null)
-        CowboyHealth.fillAmount = cboy.Health;
-        if(ninja != null)
-        NinjaHealth.fillAmount = ninja.Health;
+        if (players[0] != null)
+        Player1Health.fillAmount = players[0].Health;
+        if(players[1] != null)
+        Playe2Health.fillAmount = players[1].Health;
 
-        for (int i = 0; i < gm.Cowboykills && gm.Cowboykills <= gm.MaxKills; i++)
+        for (int i = 0; i < players[0].KillCount && players[0].KillCount <= gm.MaxKills; i++)
         {
-            cowboymarks[i].gameObject.SetActive(true);
+            Player1Marks[i].gameObject.SetActive(true);
         }
-        for (int i = 0; i < gm.Ninjakills && gm.Ninjakills <= gm.MaxKills; i++)
+        for (int i = 0; i < players[1].KillCount && players[1].KillCount <= gm.MaxKills; i++)
         {
-            ninjamarks[i].gameObject.SetActive(true);
+            Player2Marks[i].gameObject.SetActive(true);
         }
+
+        //for (int i = 0; i < players; i++)
+        //{
+
+        //}
     }
 
 

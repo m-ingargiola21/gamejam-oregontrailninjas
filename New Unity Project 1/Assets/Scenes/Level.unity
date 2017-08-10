@@ -628,112 +628,112 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: CowboyHealth
+      propertyPath: Player1Health
       value: 
       objectReference: {fileID: 1271030504}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: NinjaHealth
+      propertyPath: Playe2Health
       value: 
       objectReference: {fileID: 658016033}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[0]
+      propertyPath: Player1Marks.Array.data[0]
       value: 
       objectReference: {fileID: 96912986}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[1]
+      propertyPath: Player1Marks.Array.data[1]
       value: 
       objectReference: {fileID: 1030959752}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[2]
+      propertyPath: Player1Marks.Array.data[2]
       value: 
       objectReference: {fileID: 1699097930}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[3]
+      propertyPath: Player1Marks.Array.data[3]
       value: 
       objectReference: {fileID: 1019639680}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[4]
+      propertyPath: Player1Marks.Array.data[4]
       value: 
       objectReference: {fileID: 1358761488}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[5]
+      propertyPath: Player1Marks.Array.data[5]
       value: 
       objectReference: {fileID: 362393226}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[6]
+      propertyPath: Player1Marks.Array.data[6]
       value: 
       objectReference: {fileID: 469255228}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[7]
+      propertyPath: Player1Marks.Array.data[7]
       value: 
       objectReference: {fileID: 1127607389}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[8]
+      propertyPath: Player1Marks.Array.data[8]
       value: 
       objectReference: {fileID: 3715896}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: cowboymarks.Array.data[9]
+      propertyPath: Player1Marks.Array.data[9]
       value: 
       objectReference: {fileID: 1083821789}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[0]
+      propertyPath: Player2Marks.Array.data[0]
       value: 
       objectReference: {fileID: 1233209853}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[1]
+      propertyPath: Player2Marks.Array.data[1]
       value: 
       objectReference: {fileID: 1455604844}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[2]
+      propertyPath: Player2Marks.Array.data[2]
       value: 
       objectReference: {fileID: 123715696}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[3]
+      propertyPath: Player2Marks.Array.data[3]
       value: 
       objectReference: {fileID: 231710787}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[4]
+      propertyPath: Player2Marks.Array.data[4]
       value: 
       objectReference: {fileID: 965004052}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[5]
+      propertyPath: Player2Marks.Array.data[5]
       value: 
       objectReference: {fileID: 1045295145}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[6]
+      propertyPath: Player2Marks.Array.data[6]
       value: 
       objectReference: {fileID: 100766575}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[7]
+      propertyPath: Player2Marks.Array.data[7]
       value: 
       objectReference: {fileID: 820020194}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[8]
+      propertyPath: Player2Marks.Array.data[8]
       value: 
       objectReference: {fileID: 1465516688}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
-      propertyPath: ninjamarks.Array.data[9]
+      propertyPath: Player2Marks.Array.data[9]
       value: 
       objectReference: {fileID: 2139684767}
     - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
@@ -1062,6 +1062,18 @@ Prefab:
     - target: {fileID: 4636356313176698, guid: 44675cd9e42092f4782889ea0ae7017a, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502735682817962, guid: 44675cd9e42092f4782889ea0ae7017a, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477648243231546, guid: 44675cd9e42092f4782889ea0ae7017a, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959244133046100, guid: 44675cd9e42092f4782889ea0ae7017a, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 44675cd9e42092f4782889ea0ae7017a, type: 2}

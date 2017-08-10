@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4513008690196636}
-  - component: {fileID: 58935163325292898}
   m_Layer: 0
   m_Name: groundCheck
   m_TagString: Untagged
@@ -55,10 +54,10 @@ GameObject:
   - component: {fileID: 50209915065353128}
   - component: {fileID: 61642440070246194}
   - component: {fileID: 95412947733793130}
-  - component: {fileID: 114567989253413820}
+  - component: {fileID: 114009716343725244}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Ninja
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,21 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58935163325292898
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1174839395584672}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.05
 --- !u!61 &61642440070246194
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -181,6 +165,30 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114009716343725244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791207953533672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e76bdf59657d047a0bf70b17cf5dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsFacingRight: 1
+  MaxSpeed: 3
+  JumpForce: 205
+  doubleJump: 0
+  rigidbody2D: {fileID: 0}
+  Identifier: 2
+  Health: 1
+  KillCount: 0
+  grounded: 1
+  groundCheck: {fileID: 4513008690196636}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114303419833317612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,29 +203,6 @@ MonoBehaviour:
   ThrowingStar: {fileID: 50838524810832250, guid: c3631527d4b4d4e42b012d3c68e52072,
     type: 2}
   speed: 10
---- !u!114 &114567989253413820
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1791207953533672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f5915b5d21f814ab91b2e3d745deb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsFacingRight: 1
-  MaxSpeed: 4
-  JumpForce: 225
-  doubleJump: 0
-  rigidbody2D: {fileID: 0}
-  Identifier: 2
-  Health: 1
-  grounded: 1
-  groundCheck: {fileID: 4513008690196636}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 768
 --- !u!212 &212893833133833256
 SpriteRenderer:
   m_ObjectHideFlags: 1

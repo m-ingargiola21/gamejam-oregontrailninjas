@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum MovementState { Running, Jumping }
 
 public class PlayerController : MonoBehaviour {
 
-    public MovementState moveState;
     public bool IsFacingRight = true;
     public float MaxSpeed;
     public float JumpForce = 100;
     public bool doubleJump = false;
-    Rigidbody2D rigidbody2D;
+    public Rigidbody2D rigidbody2D;
     public int Identifier;
+
+    public float Health = 1;
+    public int KillCount;
 
     Animator anim;
     public bool grounded = false;
@@ -21,19 +22,25 @@ public class PlayerController : MonoBehaviour {
     float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        Health = 1;
+    }
+    // Use this for initialization
+    void Start()
+    {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-	}
+    }
 
     void FixedUpdate()
     {
         if (grounded)
             doubleJump = false;
-        
 
-        float move = Input.GetAxis("Horizontal"+Identifier);
+        if (Input.GetAxis("Horizontal" + Identifier) > 0)
+            anim.SetBool("Shooting", false);
+        float move = Input.GetAxis("Horizontal" + Identifier);
         anim.SetFloat("Speed", Mathf.Abs(move));
         rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
 
@@ -46,22 +53,26 @@ public class PlayerController : MonoBehaviour {
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
+
+        if (Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround))
+            Debug.Log(gameObject.name + ": " + Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround).name);
+
         anim.SetBool("Ground", grounded);
 
-        if (rigidbody2D.velocity.y > 6f)
+        if (rigidbody2D.velocity.y > 8f)
             rigidbody2D.AddForce(new Vector2(0, -JumpForce));
 
-        if ((grounded || !doubleJump) && Input.GetButtonDown("Jump"+Identifier))
+        if ((grounded || !doubleJump) && Input.GetButtonDown("Jump" + Identifier))
         {
             anim.SetBool("Ground", false);
-            if (rigidbody2D.velocity.y < (-MaxSpeed/2))
+            if (rigidbody2D.velocity.y < (-MaxSpeed / 2))
             {
                 rigidbody2D.AddForce(new Vector2(0, 2 * JumpForce));
                 Debug.Log("I'm Falling TOO FAST");
             }
             else
                 rigidbody2D.AddForce(new Vector2(0, JumpForce));
-            
+
 
             if (!doubleJump && !grounded)
             {
@@ -69,6 +80,7 @@ public class PlayerController : MonoBehaviour {
                 //Debug.Log("i shouldn't be able to jump");
             }
         }
+        
     }
 
     void Flip()

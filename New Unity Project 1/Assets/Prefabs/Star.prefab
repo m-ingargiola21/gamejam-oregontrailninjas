@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 58334110022507408}
   - component: {fileID: 50838524810832250}
   - component: {fileID: 114046667454786312}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Star
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9f3900852d58a4c99e68f441376959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whoShotMe: {fileID: 0}
+  GraveSpeed: 15
 --- !u!212 &212249362691000162
 SpriteRenderer:
   m_ObjectHideFlags: 1
