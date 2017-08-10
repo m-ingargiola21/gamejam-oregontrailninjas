@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477648243231546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.008, y: -0.751, z: 0}
+  m_LocalPosition: {x: -4.6911926, y: -0.7059367, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4289237525252304}
@@ -210,7 +210,7 @@ MonoBehaviour:
   JumpForce: 200
   doubleJump: 0
   Identifier: 1
-  health: 1
+  Health: 1
   grounded: 1
   groundCheck: {fileID: 4289237525252304}
   whatIsGround:

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 
     public int Cowboykills = 0;
     public int Ninjakills = 0;
-    public int MaxKills = 10;
+    public int MaxKills = 5;
 	// Use this for initialization
 	void Start () {
         ninja = FindObjectOfType<PlayerNinja>();
@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour {
             if (ninja.Health <= 0)
             {
                 Vector3 deathLoc = ninja.gameObject.transform.position;
-                
                 Cowboykills++;
                 Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                 ninja.gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
@@ -40,7 +39,6 @@ public class GameManager : MonoBehaviour {
                 cowboy.gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
                 cowboy.Health = 1;
             }
-        Debug.Log(Cowboykills);
-        Debug.Log(Ninjakills);
+        
     }
 }

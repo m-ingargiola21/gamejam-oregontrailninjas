@@ -29,11 +29,11 @@ public class UIManager : MonoBehaviour {
         if(ninja != null)
         NinjaHealth.fillAmount = ninja.Health;
 
-        for (int i = 0; i < gm.Cowboykills && gm.Cowboykills < 10; i++)
+        for (int i = 0; i < gm.Cowboykills && gm.Cowboykills <= gm.MaxKills; i++)
         {
             cowboymarks[i].gameObject.SetActive(true);
         }
-        for (int i = 0; i < gm.Ninjakills && gm.Cowboykills < 10; i++)
+        for (int i = 0; i < gm.Ninjakills && gm.Ninjakills <= gm.MaxKills; i++)
         {
             ninjamarks[i].gameObject.SetActive(true);
         }

@@ -626,26 +626,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
-        type: 2}
-      propertyPath: spawnpoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 439734104}
-    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
-        type: 2}
-      propertyPath: spawnpoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 307960639}
-    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
-        type: 2}
-      propertyPath: spawnpoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1010768027}
-    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
-        type: 2}
-      propertyPath: spawnpoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 513305800}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
       propertyPath: CowboyHealth
@@ -756,10 +736,26 @@ Prefab:
       propertyPath: ninjamarks.Array.data[9]
       value: 
       objectReference: {fileID: 2139684767}
-    - target: {fileID: 1229716466695104, guid: a6c760eaa899ba842b773b9fb30811c1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
+        type: 2}
+      propertyPath: spawnpoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 439734104}
+    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
+        type: 2}
+      propertyPath: spawnpoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 307960639}
+    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
+        type: 2}
+      propertyPath: spawnpoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1010768027}
+    - target: {fileID: 114135227130188076, guid: a6c760eaa899ba842b773b9fb30811c1,
+        type: 2}
+      propertyPath: spawnpoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 513305800}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6c760eaa899ba842b773b9fb30811c1, type: 2}
   m_IsPrefabParent: 0

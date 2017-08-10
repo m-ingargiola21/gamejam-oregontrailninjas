@@ -59,6 +59,9 @@ MonoBehaviour:
   - {fileID: 0}
   Gravestone: {fileID: 50617272806981974, guid: 20d4fc9adbfc11046bccc9ba8c5c6409,
     type: 2}
+  Cowboykills: 0
+  Ninjakills: 0
+  MaxKills: 5
 --- !u!114 &114748254624250106
 MonoBehaviour:
   m_ObjectHideFlags: 1
