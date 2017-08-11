@@ -54,7 +54,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4587091325780108}
   - component: {fileID: 60246043833948122}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  - component: {fileID: 251941658659473024}
+  m_Layer: 9
+>>>>>>> b9968c32feea71813ca1d9540f3db4561cc21493
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,3 +283,24 @@ MonoBehaviour:
   MapWidthInPixels: 2400
   MapHeightInPixels: 2400
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+<<<<<<< HEAD
+=======
+--- !u!251 &251941658659473024
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728125215232272}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+>>>>>>> b9968c32feea71813ca1d9540f3db4561cc21493

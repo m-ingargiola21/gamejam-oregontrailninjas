@@ -15,12 +15,28 @@ public class PlayerController : MonoBehaviour {
     public float Health = 1;
     public int KillCount;
 
+    public bool poisoned;
+    float poisonTimer = 2f;
+
     Animator anim;
     public bool grounded = false;
     [SerializeField]
     Transform groundCheck;
     float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
+
+    [SerializeField]
+    public SpriteRenderer[] AmmoTicks;
+    public int Ammo;
+    [SerializeField]
+    Sprite unusedAmmo;
+    [SerializeField]
+    Sprite usedAmmo;
+    public bool isReloading;
+
+    public PlayerController playerWhoShotMe;
+
+    
 
     private void Awake()
     {
@@ -31,6 +47,7 @@ public class PlayerController : MonoBehaviour {
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        Ammo = AmmoTicks.Length;
     }
 
     void FixedUpdate()
@@ -48,10 +65,25 @@ public class PlayerController : MonoBehaviour {
             Flip();
         else if (move > 0 && !IsFacingRight)
             Flip();
+
+        if (poisoned)
+            Health -=  Time.deltaTime/8;
     }
 
     void Update()
     {
+        if (poisoned)
+        {
+            if (poisonTimer > 0)
+                poisonTimer -= Time.deltaTime;
+            else
+            {
+                poisoned = !poisoned;
+                ResetPoison();
+            }
+        }
+
+
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
 
         if (Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround))
@@ -68,7 +100,6 @@ public class PlayerController : MonoBehaviour {
             if (rigidbody2D.velocity.y < (-MaxSpeed / 2))
             {
                 rigidbody2D.AddForce(new Vector2(0, 2 * JumpForce));
-                Debug.Log("I'm Falling TOO FAST");
             }
             else
                 rigidbody2D.AddForce(new Vector2(0, JumpForce));
@@ -77,10 +108,24 @@ public class PlayerController : MonoBehaviour {
             if (!doubleJump && !grounded)
             {
                 doubleJump = true;
-                //Debug.Log("i shouldn't be able to jump");
             }
         }
-        
+
+        UpdateAmmoUI();
+        CheckForReload();
+
+    }
+
+    private void UpdateAmmoUI()
+    {
+        for (int i = 0; i < Ammo; i++)
+        {
+            AmmoTicks[i].sprite = unusedAmmo;
+        }
+        for (int i = AmmoTicks.Length; i > Ammo; i--)
+        {
+            AmmoTicks[i-1].sprite = usedAmmo;
+        }
     }
 
     void Flip()
@@ -90,5 +135,37 @@ public class PlayerController : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+
+    void CheckForReload()
+    {
+        if (Ammo == 0 && !isReloading)
+        {
+            isReloading = true;
+            StartCoroutine(Reload());
+        }
+    }
+
+    public IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(2.0f);
+        isReloading = false;
+        Ammo = AmmoTicks.Length;
+    }
+
+    public void ResetPoison()
+    {
+        poisonTimer = 2f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            playerWhoShotMe = collision.GetComponent<Projectile>().whoShotMe;
+            Destroy(collision.gameObject);
+        }
+    }
+
 
 }

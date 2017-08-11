@@ -23,12 +23,12 @@ public class NinjaStar : MonoBehaviour
 
     void Update()
     {
-        
+        if(!playerCtrl.isReloading)
         // If the fire button is pressed...
         if (Input.GetButtonDown("Fire1_P2"))
         {
-            // ... set the animator Shoot trigger parameter and play the audioclip.
-
+                // ... set the animator Shoot trigger parameter and play the audioclip.
+                playerCtrl.Ammo--;
             anim.SetBool("Shooting", true);
             //audio.Play();
 
