@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
-{
+public class BlowDart : MonoBehaviour {
+
     public Rigidbody2D Bullet;              // Prefab of the rocket.
     public float speed = 20f;               // The speed the rocket will fire at.
-    
+
 
 
     private PlayerController playerCtrl;       // Reference to the PlayerControl script.
@@ -26,15 +26,16 @@ public class Gun : MonoBehaviour
         if (!playerCtrl.isReloading)
         // If the fire button is pressed...
         {
-            if (Input.GetButtonDown("Reload_P1"))
+            if (Input.GetButtonDown("Reload_P2"))
             {
                 playerCtrl.isReloading = true;
                 StartCoroutine(playerCtrl.Reload());
             }
-            if (Input.GetButtonDown("Fire1_P1"))
+            if (Input.GetButtonDown("Fire1_P2"))
             {
                 // ... set the animator Shoot trigger parameter and play the audioclip.
                 playerCtrl.Ammo--;
+                anim.SetBool("Shooting", true);
                 //audio.Play();
 
                 // If the player is facing right...

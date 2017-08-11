@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour {
                     Vector3 deathLoc = players[i].gameObject.transform.position;
                     Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                     players[i].gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
+                    players[i].playerWhoShotMe.KillCount++;
                     players[i].Health = 1;
+                    players[i].Ammo = players[i].AmmoTicks.Length;
+                    players[i].poisoned = false;
                 }
             }
         }
