@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4569230835915910}
-  - component: {fileID: 114027699288189900}
+  - component: {fileID: 114961100298415946}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -219,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502735682817962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.103, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0954, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4636356313176698}
@@ -374,20 +374,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114027699288189900
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1959244133046100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c1d819bc4836241891d391fe955deb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 50297440440350166, guid: 5a13174902c00714aabe6c1bad349775, type: 2}
-  speed: 20
-  reloadTime: 2
 --- !u!114 &114320777067420970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,6 +412,20 @@ MonoBehaviour:
   isReloading: 0
   reloadTime: 2
   playerWhoShotMe: {fileID: 0}
+--- !u!114 &114961100298415946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1959244133046100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e9e80fd310f0444899f1eaa6c39499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 50297440440350166, guid: 5a13174902c00714aabe6c1bad349775, type: 2}
+  speed: 20
+  reloadTime: 2
 --- !u!212 &212205153797817976
 SpriteRenderer:
   m_ObjectHideFlags: 1

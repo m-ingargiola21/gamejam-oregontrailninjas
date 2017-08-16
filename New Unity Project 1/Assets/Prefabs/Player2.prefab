@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4849680798403630}
-  - component: {fileID: 114916447343213056}
+  - component: {fileID: 114175500864055314}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -174,7 +174,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1174839395584672}
   m_LocalRotation: {x: -0, y: -0, z: 0.14257786, w: 0.9897836}
-  m_LocalPosition: {x: 0, y: -0.103, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0955, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4510034296660614}
@@ -319,7 +319,7 @@ MonoBehaviour:
   isReloading: 0
   reloadTime: 1.5
   playerWhoShotMe: {fileID: 0}
---- !u!114 &114916447343213056
+--- !u!114 &114175500864055314
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -327,11 +327,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364257522326430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292c4692bad98a94eb75c489f18cc94b, type: 3}
+  m_Script: {fileID: 11500000, guid: b6e9e80fd310f0444899f1eaa6c39499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
-  speed: 10
+  speed: 15
   reloadTime: 1.5
 --- !u!212 &212087785387163960
 SpriteRenderer:
