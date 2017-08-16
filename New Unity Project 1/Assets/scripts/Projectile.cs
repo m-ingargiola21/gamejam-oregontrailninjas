@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour {
     public PlayerController whoShotMe;
     public int GraveSpeed;
     public bool isPoisonous;
+    public float Damage;
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
@@ -15,7 +17,7 @@ public class Projectile : MonoBehaviour {
             if(!isPoisonous)
                 if (col.gameObject.tag == ("Player" + i.ToString()))
                 {
-                    col.gameObject.GetComponent<PlayerController>().Health -= .1f;
+                    col.gameObject.GetComponent<PlayerController>().Health -= Damage;
                 }
             if (isPoisonous)
                 if (col.gameObject.tag == ("Player" + i.ToString()))

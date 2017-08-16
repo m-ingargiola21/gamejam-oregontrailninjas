@@ -7,7 +7,7 @@ public class BlowDart : MonoBehaviour {
     public Rigidbody2D Bullet;              // Prefab of the rocket.
     public float speed = 20f;               // The speed the rocket will fire at.
 
-
+    public float reloadTime;
 
     private PlayerController playerCtrl;       // Reference to the PlayerControl script.
     private Animator anim;                  // Reference to the Animator component.
@@ -29,7 +29,7 @@ public class BlowDart : MonoBehaviour {
             if (Input.GetButtonDown("Reload_P2"))
             {
                 playerCtrl.isReloading = true;
-                StartCoroutine(playerCtrl.Reload());
+                StartCoroutine(playerCtrl.Reload(reloadTime));
             }
             if (Input.GetButtonDown("Fire1_P2"))
             {

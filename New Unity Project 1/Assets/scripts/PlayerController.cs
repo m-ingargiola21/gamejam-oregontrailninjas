@@ -33,10 +33,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     Sprite usedAmmo;
     public bool isReloading;
+    public float reloadTime;
 
     public PlayerController playerWhoShotMe;
 
-    
 
     private void Awake()
     {
@@ -65,9 +65,10 @@ public class PlayerController : MonoBehaviour {
             Flip();
         else if (move > 0 && !IsFacingRight)
             Flip();
-
+        
         if (poisoned)
-            Health -=  Time.deltaTime/8;
+            Health -=  Time.deltaTime/8; 
+        //8 is the total seconds that the player will be poisoned for divided by the percent health that each poison dart takes away (2 seconds / .25(25%))
     }
 
     void Update()
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
 
         if (Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround))
-            Debug.Log(gameObject.name + ": " + Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround).name);
+            //Debug.Log(gameObject.name + ": " + Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround).name);
 
         anim.SetBool("Ground", grounded);
 
@@ -142,13 +143,13 @@ public class PlayerController : MonoBehaviour {
         if (Ammo == 0 && !isReloading)
         {
             isReloading = true;
-            StartCoroutine(Reload());
+            StartCoroutine(Reload(reloadTime));
         }
     }
 
-    public IEnumerator Reload()
+    public IEnumerator Reload(float reloadTime)
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(reloadTime);
         isReloading = false;
         Ammo = AmmoTicks.Length;
     }

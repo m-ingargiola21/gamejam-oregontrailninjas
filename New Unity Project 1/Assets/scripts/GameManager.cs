@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
         {
             if (players[i] != null)
             {
-                if (players[i].Health <= 0)
+                if (players[i].Health <= 0.001)
                 {
                     Vector3 deathLoc = players[i].gameObject.transform.position;
                     Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;

@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 1574629275342424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4658548207190820}
   m_RootOrder: 1
@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 1494583533662444}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.05, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4658548207190820}
   m_RootOrder: 2
@@ -204,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 1826001520250044}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4658548207190820}
   m_RootOrder: 0
@@ -317,6 +317,8 @@ MonoBehaviour:
   unusedAmmo: {fileID: 21300000, guid: d67d67d746ed8ef4483799fdfdc840c4, type: 3}
   usedAmmo: {fileID: 21300000, guid: c33af8dca17fb044ca73dd1a08db1d90, type: 3}
   isReloading: 0
+  reloadTime: 1.5
+  playerWhoShotMe: {fileID: 0}
 --- !u!114 &114916447343213056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
   speed: 10
+  reloadTime: 1.5
 --- !u!212 &212087785387163960
 SpriteRenderer:
   m_ObjectHideFlags: 1

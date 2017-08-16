@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 1423976390801446}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.075, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 4
@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 1795668135425680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.025, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 2
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 1327235276972686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.025, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 3
@@ -233,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 1756346315092694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.125, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 0
@@ -258,7 +258,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477648243231546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6911926, y: -0.7059367, z: 0}
+  m_LocalPosition: {x: -3.686, y: -0.666, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4289237525252304}
@@ -294,7 +294,7 @@ Transform:
   m_GameObject: {fileID: 1570126093668916}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.075, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 1
@@ -307,7 +307,7 @@ Transform:
   m_GameObject: {fileID: 1545610296976630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.125, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4785900490562708}
   m_RootOrder: 5
@@ -386,7 +386,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 50297440440350166, guid: 5a13174902c00714aabe6c1bad349775, type: 2}
-  speed: 10
+  speed: 20
+  reloadTime: 2
 --- !u!114 &114320777067420970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,13 +400,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFacingRight: 1
-  MaxSpeed: 3
+  MaxSpeed: 1.5
   JumpForce: 200
   doubleJump: 0
   rigidbody2D: {fileID: 0}
   Identifier: 1
   Health: 1
   KillCount: 0
+  poisoned: 0
   grounded: 0
   groundCheck: {fileID: 4289237525252304}
   whatIsGround:
@@ -422,6 +424,8 @@ MonoBehaviour:
   unusedAmmo: {fileID: 21300000, guid: d67d67d746ed8ef4483799fdfdc840c4, type: 3}
   usedAmmo: {fileID: 21300000, guid: c33af8dca17fb044ca73dd1a08db1d90, type: 3}
   isReloading: 0
+  reloadTime: 2
+  playerWhoShotMe: {fileID: 0}
 --- !u!212 &212205153797817976
 SpriteRenderer:
   m_ObjectHideFlags: 1

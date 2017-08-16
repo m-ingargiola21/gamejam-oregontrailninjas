@@ -12,6 +12,14 @@ public class UIManager : MonoBehaviour {
     Image[] Player1Marks;
     [SerializeField]
     Image[] Player2Marks;
+    [SerializeField]
+    Image Playe3Health;
+    [SerializeField]
+    Image[] Player3Marks;
+    [SerializeField]
+    Image Playe4Health;
+    [SerializeField]
+    Image[] Player4Marks;
     PlayerController[] playersTemp;
     public PlayerController[] players;
     GameManager gm;
@@ -29,9 +37,13 @@ public class UIManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (players[0] != null)
-        Player1Health.fillAmount = players[0].Health;
+            Player1Health.fillAmount = players[0].Health;
         if(players[1] != null)
-        Playe2Health.fillAmount = players[1].Health;
+            Playe2Health.fillAmount = players[1].Health;
+        if (players[2] != null)
+            Playe3Health.fillAmount = players[2].Health;
+        if (players[3] != null)
+            Playe4Health.fillAmount = players[3].Health;
 
         for (int i = 0; i < players[0].KillCount && players[0].KillCount <= gm.MaxKills; i++)
         {
@@ -41,6 +53,14 @@ public class UIManager : MonoBehaviour {
         {
             Player2Marks[i].gameObject.SetActive(true);
         }
+        for (int i = 0; i < players[2].KillCount && players[2].KillCount <= gm.MaxKills; i++)
+        {
+            Player3Marks[i].gameObject.SetActive(true);
+        }
+        //for (int i = 0; i < players[3].KillCount && players[3].KillCount <= gm.MaxKills; i++)
+        //{
+        //    Player2Marks[i].gameObject.SetActive(true);
+        //}
 
         //for (int i = 0; i < players; i++)
         //{
