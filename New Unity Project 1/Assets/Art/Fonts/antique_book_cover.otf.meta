@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e54fadbf99b0ffc49a2307c31bbb6508
+timeCreated: 1502990750
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Antique Book Cover
+  fontNames:
+  - Antique Book Cover
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

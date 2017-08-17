@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 799526c4f7a128b4fac0d468b71ffc03
+timeCreated: 1502988430
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hard Western
+  fontNames:
+  - Hard Western
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

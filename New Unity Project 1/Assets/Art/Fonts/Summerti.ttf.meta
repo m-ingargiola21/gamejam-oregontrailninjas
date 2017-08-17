@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 814db9df99fd57e43bd576c4c2fc9fed
+timeCreated: 1502990750
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Summertime
+  fontNames:
+  - Summertime
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

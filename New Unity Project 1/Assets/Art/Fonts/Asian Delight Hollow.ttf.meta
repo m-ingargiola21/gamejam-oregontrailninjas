@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 903cc72a109c47c4a95b78452d725edd
+timeCreated: 1502988430
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Asian Delight
+  fontNames:
+  - Asian Delight
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2a48ead89bbb76749a385339b9216246, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
