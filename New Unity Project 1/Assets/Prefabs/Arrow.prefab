@@ -102,7 +102,7 @@ MonoBehaviour:
   whoShotMe: {fileID: 0}
   GraveSpeed: 20
   isPoisonous: 0
-  Damage: 0.34
+  Damage: 0.25
 --- !u!212 &212998328038101622
 SpriteRenderer:
   m_ObjectHideFlags: 1

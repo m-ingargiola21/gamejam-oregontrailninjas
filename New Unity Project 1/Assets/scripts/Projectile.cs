@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour {
                 {
                     col.gameObject.GetComponent<PlayerController>().poisoned = true;
                     col.gameObject.GetComponent<PlayerController>().ResetPoison();
+                    col.gameObject.GetComponent<PlayerController>().Health -= Damage;
                 }
         }
         if (col.gameObject.tag == "GraveStone")
