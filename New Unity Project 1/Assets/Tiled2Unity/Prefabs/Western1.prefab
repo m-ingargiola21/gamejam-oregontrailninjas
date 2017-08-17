@@ -20,7 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4236043017215232}
   - component: {fileID: 60954715497732438}
+<<<<<<< HEAD
   m_Layer: 0
+=======
+  - component: {fileID: 251311898337810350}
+  m_Layer: 9
+>>>>>>> 89d0ed4ecc9586601dd93b06600572ffa3449d41
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,3 +283,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1874989c5e2da094ea00112c6a895694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+--- !u!251 &251311898337810350
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1076637747033324}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
+>>>>>>> 89d0ed4ecc9586601dd93b06600572ffa3449d41

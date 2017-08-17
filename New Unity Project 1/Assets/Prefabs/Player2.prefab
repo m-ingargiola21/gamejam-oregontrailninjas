@@ -332,7 +332,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
   speed: 15
+  isChargable: 0
   reloadTime: 1.5
+  isCharging: 0
+  ChargeDamage: 0
+  MaxChargeDamage: 0
+  additionalDamage: 0
+  MaxChargeTime: 0
+  timer: 0
 --- !u!212 &212087785387163960
 SpriteRenderer:
   m_ObjectHideFlags: 1

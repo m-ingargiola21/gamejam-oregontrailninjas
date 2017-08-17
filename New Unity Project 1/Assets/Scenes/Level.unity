@@ -324,7 +324,7 @@ Prefab:
         type: 2}
       propertyPath: Player2Marks.Array.data[5]
       value: 
-      objectReference: {fileID: 848622874}
+      objectReference: {fileID: 1225116338}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
       propertyPath: Player2Marks.Array.data[6]
@@ -339,7 +339,7 @@ Prefab:
         type: 2}
       propertyPath: Player2Marks.Array.data[8]
       value: 
-      objectReference: {fileID: 233951015}
+      objectReference: {fileID: 1400528104}
     - target: {fileID: 114748254624250106, guid: a6c760eaa899ba842b773b9fb30811c1,
         type: 2}
       propertyPath: Player2Marks.Array.data[9]
@@ -689,6 +689,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1760433357}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1225116338 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114032326895125758, guid: 984eade9756893b4eacbd92cd7ef0791,
+    type: 2}
+  m_PrefabInternal: {fileID: 1760433357}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1271030504 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114074883348791556, guid: 984eade9756893b4eacbd92cd7ef0791,
@@ -710,6 +716,12 @@ MonoBehaviour:
 --- !u!114 &1372871106 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114501489698697378, guid: 984eade9756893b4eacbd92cd7ef0791,
+    type: 2}
+  m_PrefabInternal: {fileID: 1760433357}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &1400528104 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114402487601073436, guid: 984eade9756893b4eacbd92cd7ef0791,
     type: 2}
   m_PrefabInternal: {fileID: 1760433357}
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}

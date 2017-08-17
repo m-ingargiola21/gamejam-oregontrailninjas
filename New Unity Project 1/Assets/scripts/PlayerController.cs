@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
     public int KillCount;
 
     public bool poisoned;
-    float poisonTimer = 2f;
+    float poisonTimer = 1f;
 
     Animator anim;
     public bool grounded = false;
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour {
     public float reloadTime;
 
     public PlayerController playerWhoShotMe;
-
+    protected Weapon myWeapon;
 
     private void Awake()
     {
@@ -48,27 +48,37 @@ public class PlayerController : MonoBehaviour {
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Ammo = AmmoTicks.Length;
+        myWeapon = GetComponentInChildren<Weapon>();
     }
 
     void FixedUpdate()
     {
         if (grounded)
             doubleJump = false;
-
+        
         if (Input.GetAxis("Horizontal" + Identifier) > 0)
-            anim.SetBool("Shooting", false);
+                anim.SetBool("Shooting", false);
         float move = Input.GetAxis("Horizontal" + Identifier);
-        anim.SetFloat("Speed", Mathf.Abs(move));
-        rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
 
+        if (!myWeapon.isCharging)
+        {
+
+            anim.SetFloat("Speed", Mathf.Abs(move));
+            rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
+        }
+        else
+        {
+            anim.SetFloat("Speed", 0);
+            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+        }
         if (move < 0 && IsFacingRight)
             Flip();
         else if (move > 0 && !IsFacingRight)
             Flip();
         
         if (poisoned)
-            Health -=  Time.deltaTime/8; 
-        //8 is the total seconds that the player will be poisoned for divided by the percent health that each poison dart takes away (2 seconds / .25(25%))
+            Health -=  Time.deltaTime/4; 
+        //8 is the total seconds that the player will be poisoned for divided by the percent health that each poison dart takes away (1 seconds / .25(25%))
     }
 
     void Update()
@@ -94,7 +104,7 @@ public class PlayerController : MonoBehaviour {
 
         if (rigidbody2D.velocity.y > 8f)
             rigidbody2D.AddForce(new Vector2(0, -JumpForce));
-
+        if(!myWeapon.isCharging)
         if ((grounded || !doubleJump) && Input.GetButtonDown("Jump" + Identifier))
         {
             anim.SetBool("Ground", false);
@@ -156,7 +166,7 @@ public class PlayerController : MonoBehaviour {
 
     public void ResetPoison()
     {
-        poisonTimer = 2f;
+        poisonTimer = 1f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
