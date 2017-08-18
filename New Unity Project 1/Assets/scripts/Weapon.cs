@@ -6,6 +6,11 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] protected Rigidbody2D Bullet;
     public float speed;               // The speed the rocket will fire at.
+
+    public bool BurstFire;
+    public bool CanShootNextBurst;
+    public float burstDelay;
+
     public bool isChargable = false;
     public float reloadTime;
     public bool isCharging;
@@ -39,7 +44,7 @@ public class Weapon : MonoBehaviour
                 playerCtrl.isReloading = true;
                 StartCoroutine(playerCtrl.Reload(reloadTime));
             }
-            if (!isChargable)
+            if (!isChargable && !BurstFire)
             {
                 if (Input.GetButtonDown("Fire1_P" + playerCtrl.Identifier.ToString()))
                 {
@@ -73,7 +78,7 @@ public class Weapon : MonoBehaviour
                     }
                 }
             }
-            if(isChargable)
+            if(isChargable && !BurstFire)
             {
                 if (Input.GetButton("Fire1_P" + playerCtrl.Identifier.ToString()))
                 {
@@ -125,6 +130,54 @@ public class Weapon : MonoBehaviour
                     anim.SetFloat("Charge", 0);
                 }
             }
+            if (BurstFire && CanShootNextBurst)
+            {
+                if(Input.GetButtonDown("Fire1_P" + playerCtrl.Identifier.ToString()))
+                {
+                    playerCtrl.Ammo--;
+                    anim.SetBool("Shooting", true);
+                    CanShootNextBurst = false;
+                    StartCoroutine(Burst());
+                }
+            }
         }
+    }
+
+
+    IEnumerator Burst()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (playerCtrl.IsFacingRight)
+            {
+                // ... instantiate the rocket facing right and set it's velocity to the right. 
+                Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                Vector3 theScale = bulletInstance.transform.localScale;
+                theScale.x *= -1;
+                bulletInstance.transform.localScale = theScale;
+                bulletInstance.velocity = new Vector2(speed, 0);
+                Destroy(bulletInstance.gameObject, 2);
+            }
+            else
+            {
+                // Otherwise instantiate the rocket facing left and set it's velocity to the left.
+                Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                Vector3 theScale = bulletInstance.transform.localScale;
+                theScale.x *= -1;
+                bulletInstance.transform.localScale = theScale;
+                bulletInstance.velocity = new Vector2(-speed, 0);
+                Destroy(bulletInstance.gameObject, 2);
+            }
+            yield return new WaitForSeconds(.05f);
+        }
+        StartCoroutine(BurstDelay());
+    }
+
+    IEnumerator BurstDelay()
+    {
+        yield return new WaitForSeconds(burstDelay);
+        CanShootNextBurst = true;
     }
 }

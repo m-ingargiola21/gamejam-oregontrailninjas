@@ -109,5 +109,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Playe4Health: {fileID: 0}
-  Player4Marks: []
+  Player4Marks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   players: []

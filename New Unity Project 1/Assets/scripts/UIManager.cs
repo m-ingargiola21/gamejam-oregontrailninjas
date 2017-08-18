@@ -4,68 +4,80 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
+    
     [SerializeField]
-    Image Player1Health;
+    Image[] PlayerHealthImages;
     [SerializeField]
-    Image Playe2Health;
+    PlayerUI[] playersUItemp;
     [SerializeField]
-    Image[] Player1Marks;
+    PlayerUI[] playersUI;
     [SerializeField]
-    Image[] Player2Marks;
-    [SerializeField]
-    Image Playe3Health;
-    [SerializeField]
-    Image[] Player3Marks;
-    [SerializeField]
-    Image Playe4Health;
-    [SerializeField]
-    Image[] Player4Marks;
+    List<Image[]> PlayerMarks;
     PlayerController[] playersTemp;
     public PlayerController[] players;
     GameManager gm;
-    // Use this for initialization
+
     void Start () {
-        players = new PlayerController[4];
+        PlayerMarks = new List<Image[]>();
+        players = new PlayerController[FindObjectsOfType<PlayerController>().Length];
         playersTemp = FindObjectsOfType<PlayerController>();
         for (int i = 0; i < playersTemp.Length; i++)
         {
             players[playersTemp[i].Identifier - 1] = playersTemp[i];
         }
+        int playerNum = 0;
+        foreach (PlayerController player in players)
+        {
+            playerNum++;
+        }
+        PlayerHealthImages = new Image[4];
+        playersUItemp = FindObjectsOfType<PlayerUI>();
+        playersUI = new PlayerUI[4];
+        for (int i = 0; i < playersUItemp.Length; i++)
+        {
+            playersUI[playersUItemp[i].Identifier - 1] = playersUItemp[i];
+        }
         gm = GetComponent<GameManager>();
+        for (int i = 0; i < playersUI.Length; i++)
+        {
+            PlayerHealthImages[i] = playersUI[i].transform.GetChild(0).GetComponent<Image>();
+
+            if (playersUI[i].Identifier > players.Length)
+            {
+                playersUI[i].gameObject.SetActive(false);
+                playersUI[i].enabled = false;
+            }
+        }
+        for (int i = 0; i < players.Length; i++)
+        {    
+                PlayerMarks.Add(playersUI[i].transform.GetChild(1).GetComponentsInChildren<Image>());       
+        }
+        for (int i = 0; i < players.Length; i++)
+        {
+            for (int j = 0; j < PlayerMarks[i].Length; j++)
+            {
+                PlayerMarks[i][j].gameObject.SetActive(false);
+            }
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (players[0] != null)
-            Player1Health.fillAmount = players[0].Health;
-        if(players[1] != null)
-            Playe2Health.fillAmount = players[1].Health;
-        if (players[2] != null)
-            Playe3Health.fillAmount = players[2].Health;
-        if (players[3] != null)
-            Playe4Health.fillAmount = players[3].Health;
 
-        for (int i = 0; i < players[0].KillCount && players[0].KillCount <= gm.MaxKills; i++)
+        for (int i = 0; i < players.Length; i++)
         {
-            Player1Marks[i].gameObject.SetActive(true);
+        if (players[i] != null)
+            PlayerHealthImages[i].fillAmount = players[i].Health;
         }
-        for (int i = 0; i < players[1].KillCount && players[1].KillCount <= gm.MaxKills; i++)
-        {
-            Player2Marks[i].gameObject.SetActive(true);
-        }
-        for (int i = 0; i < players[2].KillCount && players[2].KillCount <= gm.MaxKills; i++)
-        {
-            Player3Marks[i].gameObject.SetActive(true);
-        }
-        //for (int i = 0; i < players[3].KillCount && players[3].KillCount <= gm.MaxKills; i++)
-        //{
-        //    Player2Marks[i].gameObject.SetActive(true);
-        //}
 
-        //for (int i = 0; i < players; i++)
-        //{
+        for (int i = 0; i < players.Length; i++)
+        {
+            for (int j = 0; j < players[i].KillCount && players[i].KillCount <= gm.MaxKills; j++)
+            {
+                PlayerMarks[i][j].gameObject.SetActive(true);
+            }
+        }
 
-        //}
     }
 
 
