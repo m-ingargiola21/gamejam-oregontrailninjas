@@ -24,9 +24,11 @@ GameObject:
   - component: {fileID: 50516508287946004}
   - component: {fileID: 61671665530199982}
   - component: {fileID: 114946918147838706}
+  - component: {fileID: 114840594838417398}
+  - component: {fileID: 114226737347090428}
   m_Layer: 0
   m_Name: Player3
-  m_TagString: Player3
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +72,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4064281973540580}
-  - component: {fileID: 114108237601478718}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -224,19 +225,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114108237601478718
+--- !u!114 &114226737347090428
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1767337674152450}
+  m_GameObject: {fileID: 1104963756843368}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6e9e80fd310f0444899f1eaa6c39499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullets:
+  - {fileID: 50297440440350166, guid: 5a13174902c00714aabe6c1bad349775, type: 2}
+  - {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
+  - {fileID: 50579742293825080, guid: e1e1fd438ffc7df47b21b66a5956ee74, type: 2}
+  - {fileID: 50838524810832250, guid: c3631527d4b4d4e42b012d3c68e52072, type: 2}
   Bullet: {fileID: 50579742293825080, guid: e1e1fd438ffc7df47b21b66a5956ee74, type: 2}
   speed: 20
+  bulletSpawnLoc: {fileID: 4064281973540580}
   BurstFire: 0
   CanShootNextBurst: 0
   burstDelay: 0
@@ -248,6 +255,19 @@ MonoBehaviour:
   additionalDamage: 0.75
   MaxChargeTime: 1.5
   timer: 0
+--- !u!114 &114840594838417398
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1104963756843368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed439b46eb8a3749b9033875d17ae52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 1
+  poisoned: 0
 --- !u!114 &114946918147838706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,20 +279,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e76bdf59657d047a0bf70b17cf5dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ptype: 2
   IsFacingRight: 1
   MaxSpeed: 3
   JumpForce: 210
   doubleJump: 0
   rigidbody2D: {fileID: 0}
   Identifier: 3
-  Health: 1
-  KillCount: 0
-  poisoned: 0
-  grounded: 0
+  grounded: 1
   groundCheck: {fileID: 4660952457664186}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  KillCount: 0
   AmmoTicks:
   - {fileID: 212187272204719774}
   Ammo: 1
@@ -354,7 +373,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1177679119
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300006, guid: e36fe6af0c1130842bbcd5a918410c2e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

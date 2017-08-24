@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4536948283549538}
   - component: {fileID: 60445471791680482}
-  - component: {fileID: 251352665138738712}
+  - component: {fileID: 251166873678768174}
   m_Layer: 9
   m_Name: Collision
   m_TagString: Untagged
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1273356944949142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.24, y: 2.97, z: 0}
+  m_LocalPosition: {x: -6.05, y: 3.14, z: 0}
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children:
   - {fileID: 4085057389215690}
@@ -279,7 +279,7 @@ MonoBehaviour:
   MapWidthInPixels: 2400
   MapHeightInPixels: 2400
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
---- !u!251 &251352665138738712
+--- !u!251 &251166873678768174
 PlatformEffector2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

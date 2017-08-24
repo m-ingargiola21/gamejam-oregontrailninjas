@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
         {
             if (players[i] != null)
             {
-                if (players[i].Health <= 0.001)
+                if (players[i].GetComponent<Health>().currentHealth <= 0.001)
                 {
                     Vector3 deathLoc = players[i].gameObject.transform.position;
                     Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour {
                     if(players[i].playerWhoShotMe != null)
                         players[i].playerWhoShotMe.KillCount++;
                     players[i].playerWhoShotMe = null;
-                    players[i].Health = 1;
+                    players[i].GetComponent<Health>().currentHealth = 1;
                     players[i].Ammo = players[i].AmmoTicks.Length;
-                    players[i].poisoned = false;
+                    players[i].GetComponent<Health>().poisoned = false;
                 }
             }
         }

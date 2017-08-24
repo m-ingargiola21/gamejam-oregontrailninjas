@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] protected Rigidbody2D[] Bullets;
     [SerializeField] protected Rigidbody2D Bullet;
     public float speed;               // The speed the rocket will fire at.
+    public Transform bulletSpawnLoc;
 
     public bool BurstFire;
     public bool CanShootNextBurst;
@@ -29,13 +32,34 @@ public class Weapon : MonoBehaviour
     void Awake()
     {
         // Setting up the references.
-        anim = transform.parent.gameObject.GetComponent<Animator>();
-        playerCtrl = transform.parent.GetComponent<PlayerController>();
+        anim = GetComponent<Animator>();
+        playerCtrl = GetComponent<PlayerController>();
+        if (playerCtrl.ptype == PlayerType.Cowboy)
+        {
+            Bullet = Bullets[0];
+            isChargable = false;
+        }
+        else if (playerCtrl.ptype == PlayerType.Spirit)
+        {
+            Bullet = Bullets[1];
+            isChargable = false;
+        }
+        else if (playerCtrl.ptype == PlayerType.Indian)
+        {
+            Bullet = Bullets[2];
+            isChargable = true;
+        }
+        else
+        {
+            Bullet = Bullets[3];
+            isChargable = false;
+            BurstFire = true;
+        }
     }
-
 
     void Update()
     {
+        
         if (!playerCtrl.isReloading)
         // If the fire button is pressed...
         {
@@ -57,8 +81,8 @@ public class Weapon : MonoBehaviour
                     if (playerCtrl.IsFacingRight)
                     {
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                         Vector3 theScale = bulletInstance.transform.localScale;
                         theScale.x *= -1;
                         bulletInstance.transform.localScale = theScale;
@@ -68,8 +92,8 @@ public class Weapon : MonoBehaviour
                     else
                     {
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                         Vector3 theScale = bulletInstance.transform.localScale;
                         theScale.x *= -1;
                         bulletInstance.transform.localScale = theScale;
@@ -97,8 +121,8 @@ public class Weapon : MonoBehaviour
                     if (playerCtrl.IsFacingRight)
                     {
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                         if (timer < MaxChargeTime)
                             ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
                         else
@@ -113,8 +137,8 @@ public class Weapon : MonoBehaviour
                     else
                     {
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                         if (timer < MaxChargeTime)
                             ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
                         else
@@ -151,8 +175,8 @@ public class Weapon : MonoBehaviour
             if (playerCtrl.IsFacingRight)
             {
                 // ... instantiate the rocket facing right and set it's velocity to the right. 
-                Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                 Vector3 theScale = bulletInstance.transform.localScale;
                 theScale.x *= -1;
                 bulletInstance.transform.localScale = theScale;
@@ -162,8 +186,8 @@ public class Weapon : MonoBehaviour
             else
             {
                 // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                Rigidbody2D bulletInstance = Instantiate(Bullet, transform.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = transform.parent.gameObject.GetComponent<PlayerController>();
+                Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
                 Vector3 theScale = bulletInstance.transform.localScale;
                 theScale.x *= -1;
                 bulletInstance.transform.localScale = theScale;
@@ -172,6 +196,7 @@ public class Weapon : MonoBehaviour
             }
             yield return new WaitForSeconds(.05f);
         }
+        anim.SetBool("Shooting", false);
         StartCoroutine(BurstDelay());
     }
 

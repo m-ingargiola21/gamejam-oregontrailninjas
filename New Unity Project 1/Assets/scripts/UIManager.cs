@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < players.Length; i++)
         {
         if (players[i] != null)
-            PlayerHealthImages[i].fillAmount = players[i].Health;
+            PlayerHealthImages[i].fillAmount = players[i].GetComponent<Health>().currentHealth;
         }
 
         for (int i = 0; i < players.Length; i++)

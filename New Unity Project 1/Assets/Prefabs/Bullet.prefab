@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoShotMe: {fileID: 0}
-  GraveSpeed: 20
   isPoisonous: 0
   Damage: 0.15
 --- !u!212 &212609011819944042

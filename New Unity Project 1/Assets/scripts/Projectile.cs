@@ -11,22 +11,18 @@ public class Projectile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        for (int i = 1; i < 5; i++)
-        {
             if(!isPoisonous)
-                if (col.gameObject.tag == ("Player" + i.ToString()))
+                if (col.gameObject.tag == ("Player"))
                 {
-                    col.gameObject.GetComponent<PlayerController>().Health -= Damage;
+                    col.gameObject.GetComponent<Health>().TakeDamage(Damage);
                 }
             if (isPoisonous)
-                if (col.gameObject.tag == ("Player" + i.ToString()))
+                if (col.gameObject.tag == ("Player"))
                 {
-                    col.gameObject.GetComponent<PlayerController>().poisoned = true;
-                    col.gameObject.GetComponent<PlayerController>().ResetPoison();
-                    col.gameObject.GetComponent<PlayerController>().Health -= Damage;
-                }
-        }
-        
+                    col.gameObject.GetComponent<Health>().poisoned = true;
+                    col.gameObject.GetComponent<Health>().ResetPoison();
+                    col.gameObject.GetComponent<Health>().TakeDamage(Damage);
+                }    
     }
     
 }

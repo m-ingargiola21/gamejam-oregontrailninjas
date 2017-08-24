@@ -34,7 +34,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4849680798403630}
-  - component: {fileID: 114175500864055314}
   m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
@@ -102,9 +101,11 @@ GameObject:
   - component: {fileID: 61642440070246194}
   - component: {fileID: 95412947733793130}
   - component: {fileID: 114009716343725244}
+  - component: {fileID: 114476948693091660}
+  - component: {fileID: 114110503244105316}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player2
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,20 +296,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e76bdf59657d047a0bf70b17cf5dda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ptype: 1
   IsFacingRight: 1
   MaxSpeed: 2
   JumpForce: 200
   doubleJump: 0
   rigidbody2D: {fileID: 0}
   Identifier: 2
-  Health: 1
-  KillCount: 0
-  poisoned: 0
   grounded: 1
   groundCheck: {fileID: 4513008690196636}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  KillCount: 0
   AmmoTicks:
   - {fileID: 212217115641908972}
   - {fileID: 212087785387163960}
@@ -319,21 +319,29 @@ MonoBehaviour:
   isReloading: 0
   reloadTime: 1.5
   playerWhoShotMe: {fileID: 0}
---- !u!114 &114175500864055314
+--- !u!114 &114110503244105316
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1364257522326430}
+  m_GameObject: {fileID: 1791207953533672}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6e9e80fd310f0444899f1eaa6c39499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
+  Bullets:
+  - {fileID: 50297440440350166, guid: 5a13174902c00714aabe6c1bad349775, type: 2}
+  - {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
+  - {fileID: 50579742293825080, guid: e1e1fd438ffc7df47b21b66a5956ee74, type: 2}
+  - {fileID: 50838524810832250, guid: c3631527d4b4d4e42b012d3c68e52072, type: 2}
+  Bullet: {fileID: 0}
   speed: 15
-  isChargable: 0
+  bulletSpawnLoc: {fileID: 4849680798403630}
   BurstFire: 0
+  CanShootNextBurst: 0
+  burstDelay: 0
+  isChargable: 0
   reloadTime: 1.5
   isCharging: 0
   ChargeDamage: 0
@@ -341,6 +349,19 @@ MonoBehaviour:
   additionalDamage: 0
   MaxChargeTime: 0
   timer: 0
+--- !u!114 &114476948693091660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1791207953533672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed439b46eb8a3749b9033875d17ae52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 1
+  poisoned: 0
 --- !u!212 &212087785387163960
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -456,7 +477,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1177679119
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: e139af676831ba74da23b3cd943cdb46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

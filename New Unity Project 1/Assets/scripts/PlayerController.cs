@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerController : MonoBehaviour {
 
+    public PlayerType ptype;
+
+#region Move Variables
     public bool IsFacingRight = true;
     public float MaxSpeed;
     public float JumpForce = 100;
     public bool doubleJump = false;
     public Rigidbody2D rigidbody2D;
     public int Identifier;
-
-    public float Health = 1;
-    public int KillCount;
-
-    public bool poisoned;
-    float poisonTimer = 1f;
-
-    Animator anim;
     public bool grounded = false;
     [SerializeField]
     Transform groundCheck;
     float groundedRadius = 0.05f;
     public LayerMask whatIsGround;
+#endregion
 
+    public int KillCount;
+    Animator anim;
+
+#region Ammo and Reloading
     [SerializeField]
     public SpriteRenderer[] AmmoTicks;
     public int Ammo;
@@ -34,14 +33,11 @@ public class PlayerController : MonoBehaviour {
     Sprite usedAmmo;
     public bool isReloading;
     public float reloadTime;
+#endregion
 
     public PlayerController playerWhoShotMe;
     protected Weapon myWeapon;
 
-    private void Awake()
-    {
-        Health = 1;
-    }
     // Use this for initialization
     void Start()
     {
@@ -53,6 +49,7 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate()
     {
+
         if (grounded)
             doubleJump = false;
         
@@ -76,25 +73,11 @@ public class PlayerController : MonoBehaviour {
         else if (move > 0 && !IsFacingRight)
             Flip();
         
-        if (poisoned)
-            Health -=  Time.deltaTime/4; 
         //8 is the total seconds that the player will be poisoned for divided by the percent health that each poison dart takes away (1 seconds / .25(25%))
     }
 
     void Update()
     {
-        if (poisoned)
-        {
-            if (poisonTimer > 0)
-                poisonTimer -= Time.deltaTime;
-            else
-            {
-                poisoned = !poisoned;
-                ResetPoison();
-            }
-        }
-
-
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
 
         if (Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround))
@@ -164,10 +147,6 @@ public class PlayerController : MonoBehaviour {
         Ammo = AmmoTicks.Length;
     }
 
-    public void ResetPoison()
-    {
-        poisonTimer = 1f;
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -177,6 +156,4 @@ public class PlayerController : MonoBehaviour {
             Destroy(collision.gameObject);
         }
     }
-
-
 }

@@ -1,0 +1,33 @@
+Initialize engine version: 2017.1.0p4 (892c0f8d8f8a)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.0]
+    Renderer: NVIDIA Quadro FX 3800 (ID=0x5ff)
+    Vendor:   NVIDIA
+    VRAM:     989 MB
+    Driver:   21.21.13.4201
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Timeline.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\workspace\JakeRoss\gamejam-oregontrailninjas\New Unity Project 1\Builds\NetworkTest_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.260 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.266106 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 1ea4 -> priority: 1 
+  Thread -> id: 1c78 -> priority: 1 
+  Thread -> id: 544 -> priority: 1 
+  Thread -> id: 2e04 -> priority: 1 
