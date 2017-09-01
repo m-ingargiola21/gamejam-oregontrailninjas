@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     Transform[] spawnpoints;
     public Rigidbody2D Gravestone;
-
+    public GameObject deathEffect;
     PlayerController[] playersTemp;
     public PlayerController[] players;
     public int MaxKills = 5;
@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
                 {
                     Vector3 deathLoc = players[i].gameObject.transform.position;
                     Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+                    GameObject dEffect = Instantiate(deathEffect, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                    DestroyObject(dEffect, 2f);
                     players[i].gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
                     if(players[i].playerWhoShotMe != null)
                         players[i].playerWhoShotMe.KillCount++;

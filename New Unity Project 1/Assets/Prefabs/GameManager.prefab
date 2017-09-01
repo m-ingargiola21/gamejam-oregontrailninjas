@@ -59,6 +59,8 @@ MonoBehaviour:
   - {fileID: 0}
   Gravestone: {fileID: 50617272806981974, guid: 20d4fc9adbfc11046bccc9ba8c5c6409,
     type: 2}
+  deathEffect: {fileID: 1306501692834506, guid: 94fce41257cc7ef43bc2d1219d9735f4,
+    type: 2}
   players: []
   MaxKills: 10
 --- !u!114 &114748254624250106
@@ -72,52 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30f7defb80dedb4881828ac42e28890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1Health: {fileID: 0}
-  Playe2Health: {fileID: 0}
-  Player1Marks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Player2Marks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Playe3Health: {fileID: 0}
-  Player3Marks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Playe4Health: {fileID: 0}
-  Player4Marks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  PlayerHealthImages: []
+  playersUItemp: []
+  playersUI: []
   players: []

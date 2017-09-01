@@ -6,17 +6,17 @@ public class Health : MonoBehaviour
 {
     public const float maxHealth = 1;
     public float currentHealth = maxHealth;
-
     public bool poisoned;
     float poisonTimer = 1f;
-    
 
+    
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+
         }
     }
 

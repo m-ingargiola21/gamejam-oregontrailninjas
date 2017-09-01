@@ -73,8 +73,6 @@ GameObject:
   - component: {fileID: 114320777067420970}
   - component: {fileID: 114571494361359078}
   - component: {fileID: 114135637179041786}
-  - component: {fileID: 114581747556992304}
-  - component: {fileID: 114282651101818140}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -261,7 +259,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477648243231546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2747657, y: 1.4028096, z: 0}
+  m_LocalPosition: {x: -3.686, y: -0.666, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4289237525252304}
@@ -390,27 +388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 1
   poisoned: 0
---- !u!114 &114282651101818140
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477648243231546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 3
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
 --- !u!114 &114320777067420970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -478,38 +455,6 @@ MonoBehaviour:
   additionalDamage: 0
   MaxChargeTime: 0
   timer: 0
---- !u!114 &114581747556992304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1477648243231546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 68
-    i1: 103
-    i2: 92
-    i3: 217
-    i4: 228
-    i5: 32
-    i6: 146
-    i7: 244
-    i8: 120
-    i9: 40
-    i10: 137
-    i11: 234
-    i12: 10
-    i13: 231
-    i14: 1
-    i15: 122
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!212 &212205153797817976
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -751,7 +696,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1177679119
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: 8466f7e483d809642b4bd5aacac2ea8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
