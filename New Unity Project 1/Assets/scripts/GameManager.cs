@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
                     Rigidbody2D grave = Instantiate(Gravestone, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
                     GameObject dEffect = Instantiate(deathEffect, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
                     DestroyObject(dEffect, 2f);
+                    players[i].hurtEffect.Stop();
                     players[i].gameObject.transform.position = spawnpoints[Random.Range(0, spawnpoints.Length)].position;
                     if(players[i].playerWhoShotMe != null)
                         players[i].playerWhoShotMe.KillCount++;

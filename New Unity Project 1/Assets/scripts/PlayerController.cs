@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour {
 
     public PlayerController playerWhoShotMe;
     protected Weapon myWeapon;
+    public ParticleSystem hurtEffect;
 
     // Use this for initialization
     void Start()
@@ -45,11 +46,11 @@ public class PlayerController : MonoBehaviour {
         anim = GetComponent<Animator>();
         Ammo = AmmoTicks.Length;
         myWeapon = GetComponentInChildren<Weapon>();
+        hurtEffect = transform.GetChild(3).GetComponent<ParticleSystem>();
     }
 
     void FixedUpdate()
     {
-
         if (grounded)
             doubleJump = false;
         
@@ -59,7 +60,6 @@ public class PlayerController : MonoBehaviour {
 
         if (!myWeapon.isCharging)
         {
-
             anim.SetFloat("Speed", Mathf.Abs(move));
             rigidbody2D.velocity = new Vector2(move * MaxSpeed, rigidbody2D.velocity.y);
         }
@@ -72,14 +72,12 @@ public class PlayerController : MonoBehaviour {
             Flip();
         else if (move > 0 && !IsFacingRight)
             Flip();
-        
         //8 is the total seconds that the player will be poisoned for divided by the percent health that each poison dart takes away (1 seconds / .25(25%))
     }
 
     void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround);
-
         if (Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround))
             //Debug.Log(gameObject.name + ": " + Physics2D.OverlapCircle(groundCheck.position, groundedRadius, whatIsGround).name);
 
@@ -98,16 +96,13 @@ public class PlayerController : MonoBehaviour {
             else
                 rigidbody2D.AddForce(new Vector2(0, JumpForce));
 
-
             if (!doubleJump && !grounded)
             {
                 doubleJump = true;
             }
         }
-
         UpdateAmmoUI();
         CheckForReload();
-
     }
 
     private void UpdateAmmoUI()
@@ -147,13 +142,18 @@ public class PlayerController : MonoBehaviour {
         Ammo = AmmoTicks.Length;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 10)
         {
             playerWhoShotMe = collision.GetComponent<Projectile>().whoShotMe;
             Destroy(collision.gameObject);
+            if (playerWhoShotMe.transform.position.x - transform.position.x > 0)
+                hurtEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            else
+                hurtEffect.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180f));
+                
+            hurtEffect.Play();
         }
     }
 }

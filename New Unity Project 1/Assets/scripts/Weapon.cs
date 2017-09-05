@@ -79,27 +79,11 @@ public class Weapon : MonoBehaviour
                     
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
-                    {
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                        Vector3 theScale = bulletInstance.transform.localScale;
-                        theScale.x *= -1;
-                        bulletInstance.transform.localScale = theScale;
-                        bulletInstance.velocity = new Vector2(speed, 0);
-                        Destroy(bulletInstance.gameObject, 2);
-                    }
+                        SpawnRightFacingBullet();
                     else
-                    {
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                        Vector3 theScale = bulletInstance.transform.localScale;
-                        theScale.x *= -1;
-                        bulletInstance.transform.localScale = theScale;
-                        bulletInstance.velocity = new Vector2(-speed, 0);
-                        Destroy(bulletInstance.gameObject, 2);
-                    }
+                        SpawnLeftFacingBullet();
                 }
             }
             if(isChargable && !BurstFire)
@@ -119,37 +103,11 @@ public class Weapon : MonoBehaviour
                     isCharging = false;
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
-                    {
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                        if (timer < MaxChargeTime)
-                            ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
-                        else
-                            ChargeDamage = MaxChargeDamage;
-                        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
-                        Vector3 theScale = bulletInstance.transform.localScale;
-                        theScale.x *= -1;
-                        bulletInstance.transform.localScale = theScale;
-                        bulletInstance.velocity = new Vector2((speed * (ChargeDamage / MaxChargeDamage)), 0);
-                        Destroy(bulletInstance.gameObject, 2);
-                    }
+                        SpawnRightFacingChargeBullet();
                     else
-                    {
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                        if (timer < MaxChargeTime)
-                            ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
-                        else
-                            ChargeDamage = MaxChargeDamage;
-                        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
-                        Vector3 theScale = bulletInstance.transform.localScale;
-                        theScale.x *= -1;
-                        bulletInstance.transform.localScale = theScale;
-                        bulletInstance.velocity = new Vector2((-speed*(ChargeDamage/MaxChargeDamage)), 0);
-                        Destroy(bulletInstance.gameObject, 2);
-                    }
+                        SpawnLeftFacingChargeBullet();
                     timer = 0;
                     anim.SetFloat("Charge", 0);
                 }
@@ -167,33 +125,70 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    private void SpawnLeftFacingBullet()
+    {
+        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
+        Vector3 theScale = bulletInstance.transform.localScale;
+        theScale.x *= -1;
+        bulletInstance.transform.localScale = theScale;
+        bulletInstance.velocity = new Vector2(-speed, 0);
+        Destroy(bulletInstance.gameObject, 2);
+    }
+
+    private void SpawnRightFacingBullet()
+    {
+        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
+        Vector3 theScale = bulletInstance.transform.localScale;
+        theScale.x *= -1;
+        bulletInstance.transform.localScale = theScale;
+        bulletInstance.velocity = new Vector2(speed, 0);
+        Destroy(bulletInstance.gameObject, 2);
+    }
+
+    private void SpawnRightFacingChargeBullet()
+    {
+        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
+        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
+        if (timer < MaxChargeTime)
+            ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
+        else
+            ChargeDamage = MaxChargeDamage;
+        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
+        Vector3 theScale = bulletInstance.transform.localScale;
+        theScale.x *= -1;
+        bulletInstance.transform.localScale = theScale;
+        bulletInstance.velocity = new Vector2((speed * (ChargeDamage / MaxChargeDamage)), 0);
+        Destroy(bulletInstance.gameObject, 2);
+    }
+
+    private void SpawnLeftFacingChargeBullet()
+    {
+        Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
+        bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
+        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
+        Vector3 theScale = bulletInstance.transform.localScale;
+        theScale.x *= -1;
+        if (timer < MaxChargeTime)
+            ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
+        else
+            ChargeDamage = MaxChargeDamage;
+        bulletInstance.transform.localScale = theScale;
+        bulletInstance.velocity = new Vector2((-speed * (ChargeDamage / MaxChargeDamage)), 0);
+        Destroy(bulletInstance.gameObject, 2);
+    }
 
     IEnumerator Burst()
     {
         for (int i = 0; i < 3; i++)
         {
             if (playerCtrl.IsFacingRight)
-            {
                 // ... instantiate the rocket facing right and set it's velocity to the right. 
-                Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                Vector3 theScale = bulletInstance.transform.localScale;
-                theScale.x *= -1;
-                bulletInstance.transform.localScale = theScale;
-                bulletInstance.velocity = new Vector2(speed, 0);
-                Destroy(bulletInstance.gameObject, 2);
-            }
+                SpawnRightFacingBullet();
             else
-            {
                 // Otherwise instantiate the rocket facing left and set it's velocity to the left.
-                Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
-                bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-                Vector3 theScale = bulletInstance.transform.localScale;
-                theScale.x *= -1;
-                bulletInstance.transform.localScale = theScale;
-                bulletInstance.velocity = new Vector2(-speed, 0);
-                Destroy(bulletInstance.gameObject, 2);
-            }
+                SpawnLeftFacingBullet();
             yield return new WaitForSeconds(.05f);
         }
         anim.SetBool("Shooting", false);
