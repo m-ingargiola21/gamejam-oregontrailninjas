@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4536948283549538}
   - component: {fileID: 60445471791680482}
-  - component: {fileID: 251833318188783390}
+  - component: {fileID: 251199863996999968}
   m_Layer: 9
   m_Name: Collision
   m_TagString: Untagged
@@ -279,7 +279,7 @@ MonoBehaviour:
   MapWidthInPixels: 2400
   MapHeightInPixels: 2400
   BackgroundColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
---- !u!251 &251833318188783390
+--- !u!251 &251199863996999968
 PlatformEffector2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
