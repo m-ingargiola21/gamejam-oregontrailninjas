@@ -1437,6 +1437,46 @@ Prefab:
       propertyPath: m_Text
       value: Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013570536982, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_Text
+      value: Of the Oregon Trail
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782844092300116, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_Text
+      value: Battle
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010310571520, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010378279000, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010310571520, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010310571520, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010310571520, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010223076430, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+        type: 2}
+      propertyPath: m_Text
+      value: NINJAS
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e838ea8a6011e114d9b90f85f5d3a04b, type: 2}
   m_IsPrefabParent: 0
