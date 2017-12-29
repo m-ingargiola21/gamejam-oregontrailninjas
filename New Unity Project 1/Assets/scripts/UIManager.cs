@@ -16,20 +16,26 @@ public class UIManager : MonoBehaviour {
     PlayerController[] playersTemp;
     public PlayerController[] players;
     GameManager gm;
+    [SerializeField]
+    private Canvas GameOverCanvas;
+    [SerializeField]
+    Sprite[] PlayerIcons;
+    [SerializeField]
+    Image killedPlayer;
 
     void Start () {
+        //creates list of image arrays that coorispond to the number of kills each player has
         PlayerMarks = new List<Image[]>();
+        //creates a PlayerController array based on the number of players in the scene
         players = new PlayerController[FindObjectsOfType<PlayerController>().Length];
+        //stores all the PlayerCharacter instances in scene in a temporaty array
         playersTemp = FindObjectsOfType<PlayerController>();
+        //for loop arranges the PlayerCharacter instances in order based on their Identifier number
         for (int i = 0; i < playersTemp.Length; i++)
         {
             players[playersTemp[i].Identifier - 1] = playersTemp[i];
         }
-        int playerNum = 0;
-        foreach (PlayerController player in players)
-        {
-            playerNum++;
-        }
+        //creates 
         PlayerHealthImages = new Image[4];
         playersUItemp = FindObjectsOfType<PlayerUI>();
         playersUI = new PlayerUI[4];
@@ -80,5 +86,51 @@ public class UIManager : MonoBehaviour {
 
     }
 
+    public void DisplayEndRound(int playerWhoWon)
+    {
+        //Cursor.lockState = CursorLockMode.None;
+       // Cursor.visible = true;
+        
+        GameOverCanvas.gameObject.SetActive(true);
+       
+        GameObject EndPanel = GameOverCanvas.transform.GetChild(0).gameObject;
+        for (int p = 0; p < players.Length; p++)
+        {
+            EndPanel.transform.GetChild(p).gameObject.SetActive(true);
+        }
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            for (int j = 0; j < players[i].KillCount; j++)
+            {
+                switch (players[i].KillList[j])
+                {
+                    case PlayerType.Cowboy:
+                        killedPlayer.sprite = PlayerIcons[0];
+                        Instantiate<Image>(killedPlayer,EndPanel.transform.GetChild(i).transform);
+                        break;
+                    case PlayerType.Spirit:
+                        killedPlayer.sprite = PlayerIcons[1];
+                        Instantiate<Image>(killedPlayer, EndPanel.transform.GetChild(i).transform);
+                        break;
+                    case PlayerType.Indian:
+                        killedPlayer.sprite = PlayerIcons[2];
+                        Instantiate<Image>(killedPlayer, EndPanel.transform.GetChild(i).transform);
+                        break;
+                    case PlayerType.Ninja:
+                        killedPlayer.sprite = PlayerIcons[3];
+                        Instantiate<Image>(killedPlayer, EndPanel.transform.GetChild(i).transform);
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+        }
+        for (int i = 0; i < players.Length; i++)
+        {
+            players[i].enabled = false;
+        }
+    }
 
 }

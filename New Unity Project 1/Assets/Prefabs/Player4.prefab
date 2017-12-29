@@ -362,7 +362,7 @@ MonoBehaviour:
   - {fileID: 50689359955878852, guid: b9a49e39412a0694fa19341949e1ac18, type: 2}
   - {fileID: 50579742293825080, guid: e1e1fd438ffc7df47b21b66a5956ee74, type: 2}
   - {fileID: 50838524810832250, guid: c3631527d4b4d4e42b012d3c68e52072, type: 2}
-  Bullet: {fileID: 0}
+  Bullet: {fileID: 50838524810832250, guid: c3631527d4b4d4e42b012d3c68e52072, type: 2}
   speed: 10
   bulletSpawnLoc: {fileID: 4605790476463544}
   BurstFire: 1
@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ptype: 3
+  KillList: 
   IsFacingRight: 1
   MaxSpeed: 3
   JumpForce: 205

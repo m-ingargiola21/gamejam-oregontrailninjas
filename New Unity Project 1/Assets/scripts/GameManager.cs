@@ -13,15 +13,24 @@ public class GameManager : MonoBehaviour {
     public PlayerController[] players;
     public int MaxKills = 5;
     public bool GameIsOn;
-	// Use this for initialization
-	void Start () {
+    public UIManager UI;
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    // Use this for initialization
+    void Start () {
         GameIsOn = true;
-        players = new PlayerController[4];
+        players = new PlayerController[FindObjectsOfType<PlayerController>().Length];
         playersTemp = FindObjectsOfType<PlayerController>();
         for (int i = 0; i < playersTemp.Length; i++)
         {
             players[playersTemp[i].Identifier - 1] = playersTemp[i];
         }
+        UI = GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -34,15 +43,18 @@ public class GameManager : MonoBehaviour {
                 if (players[i].GetComponent<Health>().currentHealth <= 0.001)
                 {
                     KillPlayer(i);
-                    if(players[i].playerWhoShotMe != null)
+                    if (players[i].playerWhoShotMe != null)
+                    {
                         players[i].playerWhoShotMe.KillCount++;
+                        players[i].playerWhoShotMe.KillList.Add(players[i].ptype);
+                    }
                     players[i].playerWhoShotMe = null;
                     players[i].GetComponent<Health>().currentHealth = 1;
                     players[i].Ammo = players[i].AmmoTicks.Length;
                     players[i].GetComponent<Health>().poisoned = false;
                 }
             }
-            if (players[i].KillCount >= 10)
+            if (players[i].KillCount >= 10 && GameIsOn)
             {
                 GameIsOn = false;
                 for (int j = 0; j < players.Length; j++)
@@ -53,7 +65,7 @@ public class GameManager : MonoBehaviour {
                         KillPlayer(j);
                     }
                 }
-                EndRound();
+                EndRound(i);
             }
         }
     }
@@ -71,8 +83,8 @@ public class GameManager : MonoBehaviour {
             players[playerIndex].gameObject.SetActive(false);
     }
 
-    private void EndRound()
+    private void EndRound(int winner)
     {
-
+        UI.DisplayEndRound(winner);
     }
 }

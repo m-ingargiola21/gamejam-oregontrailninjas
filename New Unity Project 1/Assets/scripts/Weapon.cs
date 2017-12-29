@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Rigidbody2D Bullet;
     public float speed;               // The speed the rocket will fire at.
     public Transform bulletSpawnLoc;
+    bool canFire = true;
 
     public bool BurstFire;
     public bool CanShootNextBurst;
@@ -20,14 +21,15 @@ public class Weapon : MonoBehaviour
 
     private PlayerController playerCtrl;       // Reference to the PlayerControl script.
     private Animator anim;                  // Reference to the Animator component.
-    //[SerializeField]
-    public float ChargeDamage;
-    //[SerializeField]
-    public float MaxChargeDamage;
-    //[SerializeField]
-    public float additionalDamage;
-    //[SerializeField]
-    public float MaxChargeTime;
+
+    [SerializeField]
+    private float ChargeDamage;
+    [SerializeField]
+    private float MaxChargeDamage;
+    [SerializeField]
+    private float additionalDamage;
+    [SerializeField]
+    private float MaxChargeTime;
     public float timer = 0;
     void Awake()
     {
@@ -59,7 +61,7 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
-        
+
         if (!playerCtrl.isReloading)
         // If the fire button is pressed...
         {
@@ -70,13 +72,13 @@ public class Weapon : MonoBehaviour
             }
             if (!isChargable && !BurstFire)
             {
-                if (Input.GetButtonDown("Fire1_P" + playerCtrl.Identifier.ToString()))
+                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f && canFire)
                 {
                     // ... set the animator Shoot trigger parameter and play the audioclip.
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
                     //audio.Play();
-                    
+                    Debug.Log("Trigger Pulled");
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
@@ -84,19 +86,22 @@ public class Weapon : MonoBehaviour
                     else
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
                         SpawnLeftFacingBullet();
+
+                    canFire = false;
                 }
             }
-            if(isChargable && !BurstFire)
+            if (isChargable && !BurstFire && canFire)
             {
-                if (Input.GetButton("Fire1_P" + playerCtrl.Identifier.ToString()))
+                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f)
                 {
                     timer += Time.deltaTime;
                     isCharging = true;
-                    anim.SetFloat("Charge",(timer/MaxChargeTime));
+                    anim.SetFloat("Charge", (timer / MaxChargeTime));
 
                 }
-                if (Input.GetButtonUp("Fire1_P" + playerCtrl.Identifier.ToString()))
+                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) > -.1f && isCharging)
                 {
+                    canFire = false;
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
                     //audio.Play();
@@ -109,18 +114,24 @@ public class Weapon : MonoBehaviour
                         // Otherwise instantiate the rocket facing left and set it's velocity to the left.
                         SpawnLeftFacingChargeBullet();
                     timer = 0;
+                    ChargeDamage = 0f;
                     anim.SetFloat("Charge", 0);
                 }
             }
-            if (BurstFire && CanShootNextBurst)
+            if (BurstFire && CanShootNextBurst && canFire)
             {
-                if(Input.GetButtonDown("Fire1_P" + playerCtrl.Identifier.ToString()))
+                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f)
                 {
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
                     CanShootNextBurst = false;
                     StartCoroutine(Burst());
+                    canFire = false;
                 }
+            }
+            if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) > -.1f)
+            {
+                canFire = true;
             }
         }
     }
@@ -167,13 +178,13 @@ public class Weapon : MonoBehaviour
     {
         Rigidbody2D bulletInstance = Instantiate(Bullet, bulletSpawnLoc.position, Quaternion.Euler(new Vector3(0, 0, 180f))) as Rigidbody2D;
         bulletInstance.gameObject.GetComponent<Projectile>().whoShotMe = playerCtrl;
-        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
-        Vector3 theScale = bulletInstance.transform.localScale;
-        theScale.x *= -1;
         if (timer < MaxChargeTime)
             ChargeDamage = (timer / MaxChargeTime * additionalDamage) + bulletInstance.gameObject.GetComponent<Projectile>().Damage;
         else
             ChargeDamage = MaxChargeDamage;
+        bulletInstance.gameObject.GetComponent<Projectile>().Damage = ChargeDamage;
+        Vector3 theScale = bulletInstance.transform.localScale;
+        theScale.x *= -1;
         bulletInstance.transform.localScale = theScale;
         bulletInstance.velocity = new Vector2((-speed * (ChargeDamage / MaxChargeDamage)), 0);
         Destroy(bulletInstance.gameObject, 2);

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public PlayerType ptype;
-
+    public List<PlayerType> KillList;
 #region Move Variables
     public bool IsFacingRight = true;
     public float MaxSpeed;
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        KillList = new List<PlayerType>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         Ammo = AmmoTicks.Length;

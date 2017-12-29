@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4537287308855894}
   - component: {fileID: 114135227130188076}
   - component: {fileID: 114748254624250106}
+  - component: {fileID: 114044538924137326}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114044538924137326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229716466695104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bcae011c7ee9e4eb6c3763985f26ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114135227130188076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,6 +75,8 @@ MonoBehaviour:
     type: 2}
   players: []
   MaxKills: 10
+  GameIsOn: 0
+  UI: {fileID: 0}
 --- !u!114 &114748254624250106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,3 +92,10 @@ MonoBehaviour:
   playersUItemp: []
   playersUI: []
   players: []
+  GameOverCanvas: {fileID: 0}
+  PlayerIcons:
+  - {fileID: 21300000, guid: 95560d59e9bda9e419a6168c1b68ace2, type: 3}
+  - {fileID: 21300000, guid: 28894cf1630dc5c449fccec64f1d8fa9, type: 3}
+  - {fileID: 21300000, guid: 779f37613a56d93499505e5397b452f5, type: 3}
+  - {fileID: 21300000, guid: 2ae22d9703b6c524aa140142aac8165a, type: 3}
+  killedPlayer: {fileID: 0}

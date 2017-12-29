@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ptype: 2
+  KillList: 
   IsFacingRight: 1
   MaxSpeed: 3
   JumpForce: 210
