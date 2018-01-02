@@ -5,24 +5,24 @@ using UnityEngine.UI;
 
 public class UpdateCountText : MonoBehaviour {
     Text playerCountText;
-    int players;
+    public int Players;
 	// Use this for initialization
 	void Start () {
         playerCountText = GetComponent<Text>();
-        players = 2;
+        Players = 2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        playerCountText.text = "Player Count: " + players.ToString();
+        playerCountText.text = "Player: " + Players.ToString();
         int i = 1;
         while (i < 5)
         {
             if (Input.GetButtonDown("Reload_P" + i.ToString()))
             {
-                players++;
-                if (players > 4)
-                    players = 2;
+                Players++;
+                if (Players > 4)
+                    Players = 2;
             }
             i++;
         }

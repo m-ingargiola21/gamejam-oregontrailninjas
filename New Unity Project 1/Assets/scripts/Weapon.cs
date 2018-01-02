@@ -65,14 +65,14 @@ public class Weapon : MonoBehaviour
         if (!playerCtrl.isReloading)
         // If the fire button is pressed...
         {
-            if (Input.GetButtonDown("Reload_P" + playerCtrl.Identifier.ToString()))
+            if (Input.GetButtonDown("Reload_P" + (playerCtrl.Identifier +1)))
             {
                 playerCtrl.isReloading = true;
                 StartCoroutine(playerCtrl.Reload(reloadTime));
             }
             if (!isChargable && !BurstFire)
             {
-                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f && canFire)
+                if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) < -0.98f && canFire)
                 {
                     // ... set the animator Shoot trigger parameter and play the audioclip.
                     playerCtrl.Ammo--;
@@ -92,14 +92,14 @@ public class Weapon : MonoBehaviour
             }
             if (isChargable && !BurstFire && canFire)
             {
-                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f)
+                if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) < -0.98f)
                 {
                     timer += Time.deltaTime;
                     isCharging = true;
                     anim.SetFloat("Charge", (timer / MaxChargeTime));
 
                 }
-                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) > -.1f && isCharging)
+                if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) > -.1f && isCharging)
                 {
                     canFire = false;
                     playerCtrl.Ammo--;
@@ -120,7 +120,7 @@ public class Weapon : MonoBehaviour
             }
             if (BurstFire && CanShootNextBurst && canFire)
             {
-                if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) < -0.98f)
+                if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) < -0.98f)
                 {
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
@@ -129,7 +129,7 @@ public class Weapon : MonoBehaviour
                     canFire = false;
                 }
             }
-            if (Input.GetAxis("Fire1_P" + playerCtrl.Identifier.ToString()) > -.1f)
+            if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) > -.1f)
             {
                 canFire = true;
             }

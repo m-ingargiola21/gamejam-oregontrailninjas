@@ -55,9 +55,9 @@ public class PlayerController : MonoBehaviour {
         if (grounded)
             doubleJump = false;
         
-        if (Input.GetAxis("Horizontal" + Identifier) > 0)
+        if (Input.GetAxis("Horizontal" + (Identifier + 1)) > 0)
                 anim.SetBool("Shooting", false);
-        float move = Input.GetAxis("Horizontal" + Identifier);
+        float move = Input.GetAxis("Horizontal" + (Identifier + 1));
 
         if (!myWeapon.isCharging)
         {
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
         if (rigidbody2D.velocity.y > 8f)
             rigidbody2D.AddForce(new Vector2(0, -JumpForce));
         if(!myWeapon.isCharging)
-        if ((grounded || !doubleJump) && Input.GetButtonDown("Jump" + Identifier))
+        if ((grounded || !doubleJump) && Input.GetButtonDown("Jump" + (Identifier+1)))
         {
             anim.SetBool("Ground", false);
             if (rigidbody2D.velocity.y < (-MaxSpeed / 2))

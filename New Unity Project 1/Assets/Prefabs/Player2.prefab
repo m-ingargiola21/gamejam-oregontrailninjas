@@ -334,7 +334,7 @@ MonoBehaviour:
   JumpForce: 200
   doubleJump: 0
   rigidbody2D: {fileID: 0}
-  Identifier: 2
+  Identifier: 1
   grounded: 1
   groundCheck: {fileID: 4513008690196636}
   whatIsGround:

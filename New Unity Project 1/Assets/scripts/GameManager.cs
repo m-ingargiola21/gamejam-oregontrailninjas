@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,23 +14,34 @@ public class GameManager : MonoBehaviour {
     public PlayerController[] players;
     public int MaxKills = 5;
     public bool GameIsOn;
+    public bool GameHasEnded = false;
     public UIManager UI;
+    int playersToDeactivate;
 
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
-
-    // Use this for initialization
-    void Start () {
         GameIsOn = true;
         players = new PlayerController[FindObjectsOfType<PlayerController>().Length];
         playersTemp = FindObjectsOfType<PlayerController>();
         for (int i = 0; i < playersTemp.Length; i++)
         {
-            players[playersTemp[i].Identifier - 1] = playersTemp[i];
+            players[playersTemp[i].Identifier] = playersTemp[i];
+
         }
+        if (FindObjectOfType<PlayersToLoad>())
+            playersToDeactivate = 4 - FindObjectOfType<PlayersToLoad>().GetPlayerToBeInGame();
+        else
+            playersToDeactivate = 0;
+        for (int i = 0; i < playersToDeactivate; i++)
+        {
+            players[3-i].gameObject.SetActive(false);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
         UI = GetComponent<UIManager>();
     }
 
@@ -42,22 +54,21 @@ public class GameManager : MonoBehaviour {
             {
                 if (players[i].GetComponent<Health>().currentHealth <= 0.001)
                 {
-                    KillPlayer(i);
                     if (players[i].playerWhoShotMe != null)
                     {
                         players[i].playerWhoShotMe.KillCount++;
                         players[i].playerWhoShotMe.KillList.Add(players[i].ptype);
                     }
+                    KillPlayer(i);
                     players[i].playerWhoShotMe = null;
                     players[i].GetComponent<Health>().currentHealth = 1;
                     players[i].Ammo = players[i].AmmoTicks.Length;
                     players[i].GetComponent<Health>().poisoned = false;
                 }
             }
-            if (players[i].KillCount >= 10 && GameIsOn)
+            if (players[i].KillCount >= 10 && !GameIsOn && !GameHasEnded)
             {
-                GameIsOn = false;
-                for (int j = 0; j < players.Length; j++)
+                for (int j = 0; j < 3-playersToDeactivate; j++)
                 {
                     if (i != j)
                     {
@@ -65,6 +76,7 @@ public class GameManager : MonoBehaviour {
                         KillPlayer(j);
                     }
                 }
+                GameHasEnded = true;
                 EndRound(i);
             }
         }
@@ -77,6 +89,13 @@ public class GameManager : MonoBehaviour {
         GameObject dEffect = Instantiate(deathEffect, deathLoc, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
         DestroyObject(dEffect, 2f);
         players[playerIndex].hurtEffect.Stop();
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].KillCount >= 10)
+                GameIsOn = false;
+        }
+
         if (GameIsOn)
             players[playerIndex].gameObject.transform.position = spawnpoints[UnityEngine.Random.Range(0, spawnpoints.Length)].position;
         else

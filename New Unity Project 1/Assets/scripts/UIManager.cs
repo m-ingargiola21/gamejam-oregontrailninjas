@@ -33,16 +33,15 @@ public class UIManager : MonoBehaviour {
         //for loop arranges the PlayerCharacter instances in order based on their Identifier number
         for (int i = 0; i < playersTemp.Length; i++)
         {
-            players[playersTemp[i].Identifier - 1] = playersTemp[i];
+            players[playersTemp[i].Identifier] = playersTemp[i];
         }
         //creates 
         PlayerHealthImages = new Image[4];
         playersUItemp = FindObjectsOfType<PlayerUI>();
         playersUI = new PlayerUI[4];
-        for (int i = 0; i < playersUItemp.Length; i++)
-        {
-            playersUI[playersUItemp[i].Identifier - 1] = playersUItemp[i];
-        }
+        
+        playersUI = playersUItemp;
+        
         gm = GetComponent<GameManager>();
         for (int i = 0; i < playersUI.Length; i++)
         {
