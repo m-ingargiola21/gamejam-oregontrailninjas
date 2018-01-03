@@ -40,28 +40,33 @@ public class UIManager : MonoBehaviour {
         playersUItemp = FindObjectsOfType<PlayerUI>();
         playersUI = new PlayerUI[4];
         
-        playersUI = playersUItemp;
-        
-        gm = GetComponent<GameManager>();
-        for (int i = 0; i < playersUI.Length; i++)
-        {
-            PlayerHealthImages[i] = playersUI[i].transform.GetChild(0).GetComponent<Image>();
 
-            if (playersUI[i].Identifier > players.Length)
+        for (int i = 0; i < playersUItemp.Length; i++)
+        {
+            int temp = playersUItemp[i].Identifier;
+            playersUI[temp] = playersUItemp[i];
+        }
+
+        gm = GetComponent<GameManager>();
+        for (int k = 0; k < playersUI.Length; k++)
+        {
+            PlayerHealthImages[k] = playersUI[k].transform.GetChild(0).GetComponent<Image>();
+
+            if (playersUI[k].Identifier >= (4-gm.playersToDeactivate))
             {
-                playersUI[i].gameObject.SetActive(false);
-                playersUI[i].enabled = false;
+                playersUI[k].gameObject.SetActive(false);
+                playersUI[k].enabled = false;
             }
         }
-        for (int i = 0; i < players.Length; i++)
+        for (int j = 0; j < players.Length; j++)
         {    
-                PlayerMarks.Add(playersUI[i].transform.GetChild(1).GetComponentsInChildren<Image>());       
+                PlayerMarks.Add(playersUI[j].transform.GetChild(1).GetComponentsInChildren<Image>());       
         }
-        for (int i = 0; i < players.Length; i++)
+        for (int l = 0; l < players.Length; l++)
         {
-            for (int j = 0; j < PlayerMarks[i].Length; j++)
+            for (int p = 0; p < PlayerMarks[l].Length; p++)
             {
-                PlayerMarks[i][j].gameObject.SetActive(false);
+                PlayerMarks[l][p].gameObject.SetActive(false);
             }
         }
     }

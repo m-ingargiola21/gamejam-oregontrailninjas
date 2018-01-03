@@ -181,6 +181,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1221535851122132, guid: 05aa894b4d281b94e8f31dae600648a4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 05aa894b4d281b94e8f31dae600648a4, type: 2}
   m_IsPrefabParent: 0
@@ -762,6 +766,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1104963756843368, guid: aa6ceda1d701b4e43b4c1474ef58898f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa6ceda1d701b4e43b4c1474ef58898f, type: 2}
   m_IsPrefabParent: 0
@@ -907,10 +915,6 @@ Prefab:
     - target: {fileID: 1679471327688600, guid: 984eade9756893b4eacbd92cd7ef0791, type: 2}
       propertyPath: m_Name
       value: GamePlayCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1679471327688600, guid: 984eade9756893b4eacbd92cd7ef0791, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 984eade9756893b4eacbd92cd7ef0791, type: 2}

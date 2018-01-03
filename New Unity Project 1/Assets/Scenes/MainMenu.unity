@@ -147,9 +147,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82000013606102922, guid: 20c7db8f0ce52314daed74ee8910132e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c39689ae240f73744923d7d62f590e9e, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 20c7db8f0ce52314daed74ee8910132e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &184162251 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013716190262, guid: e838ea8a6011e114d9b90f85f5d3a04b,
+    type: 2}
+  m_PrefabInternal: {fileID: 289128230}
 --- !u!1 &233394033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 184162251}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &798406399

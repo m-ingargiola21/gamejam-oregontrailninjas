@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public bool GameIsOn;
     public bool GameHasEnded = false;
     public UIManager UI;
-    int playersToDeactivate;
+    public int playersToDeactivate;
 
     private void Awake()
     {
