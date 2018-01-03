@@ -14,7 +14,7 @@ public class UpdateCountText : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        playerCountText.text = "Player: " + Players.ToString();
+        playerCountText.text = "Players: " + Players.ToString();
         int i = 1;
         while (i < 5)
         {
