@@ -115,6 +115,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ActiveStateToggler
 554fc6c396136a750ea1127d5c6841bb Assembly-CSharp.dll:.Credits
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.PlayersToLoad
 4e660054cf337cb853332c34b5136064 Assembly-CSharp.dll:.PlayerCowboy
 fab3f48bb6484a76cde2b81e3201be7e Assembly-CSharp.dll:Tiled2Unity.TileObject
 1ac45e65362b8990ca8bc05364d4581e Assembly-CSharp.dll:Tiled2Unity.ImportBehaviour
@@ -127,8 +128,10 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 c5b77decb97ffc0c36e810b155d27dde Assembly-CSharp.dll:Tiled2Unity.TiledMap
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GraveStone
+05524b8f659e7bfe5756d1335fec24ba DarkArtsStudios.ScreenshotCreator.Runtime.dll:DarkArtsStudios.ScreenshotCreator.ScreenshotManager
 1d83a9305d43d721a1a290b66b527168 Assembly-CSharp.dll:.NinjaStar
 847108a4f4300c8402f74cce11a88a67 Assembly-CSharp.dll:.DropMe
+2e25c32e02d619c886017d37d159e818 Assembly-CSharp.dll:.UpdateCountText
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ShowSliderValue
 f149f24230a6358c2804c5fae71459a2 Assembly-CSharp.dll:Tiled2Unity.TileAnimator
 ed0df2379c25893b87f28f7cd4615940 Assembly-CSharp.dll:.LoadOnEnter
@@ -175,6 +178,7 @@ b1db202e9513cc145728dbfd15ceac2c Assembly-CSharp.dll:.Bow
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ApplicationManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ChangeColor
 cd49abf179e2b4508c61daaa1fb9ec62 Assembly-CSharp.dll:.PlayerController
-4cd56b36eb60d75ad6b6d9f424b27969 Assembly-CSharp.dll:.GameManager
+3b10f8943a8c1e795e90564245117c2d Assembly-CSharp.dll:.GameManager
 f46596c45ecb5a30f394d1c0fdded2ad Assembly-CSharp.dll:.UIManager
 a72addf0be51ae2d5df278dff69181b3 Assembly-CSharp.dll:.Hazard
+520e02369dbb9e59094ad6c308be6234 Assembly-CSharp.dll:DarkArtsStudios.ScreenshotCreator.Examples.ScreenshotOnKeyPress
