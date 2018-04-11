@@ -150,11 +150,11 @@ InputManager:
     axis: 2
     joyNum: 4
   - serializedVersion: 3
-    m_Name: Fire3
+    m_Name: Fire
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left shift
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: mouse 2
     gravity: 1000

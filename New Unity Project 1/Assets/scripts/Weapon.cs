@@ -74,11 +74,12 @@ public class Weapon : MonoBehaviour
             {
                 if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) < -0.98f && canFire)
                 {
+                    //This is to test singleton
+                    //Debug.Log(CharacterSelect.instance.hello);
                     // ... set the animator Shoot trigger parameter and play the audioclip.
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
                     //audio.Play();
-                    Debug.Log("Trigger Pulled");
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
