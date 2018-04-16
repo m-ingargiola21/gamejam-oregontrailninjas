@@ -31,6 +31,13 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     private float MaxChargeTime;
     public float timer = 0;
+
+
+    [SerializeField]
+    AudioSource audio;
+
+
+
     void Awake()
     {
         // Setting up the references.
@@ -57,7 +64,10 @@ public class Weapon : MonoBehaviour
             isChargable = false;
             BurstFire = true;
         }
+        
+        
     }
+
 
     void Update()
     {
@@ -74,12 +84,11 @@ public class Weapon : MonoBehaviour
             {
                 if (Input.GetAxis("Fire1_P" + (playerCtrl.Identifier + 1)) < -0.98f && canFire)
                 {
-                    //This is to test singleton
-                    //Debug.Log(CharacterSelect.instance.hello);
+          
                     // ... set the animator Shoot trigger parameter and play the audioclip.
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
-                    //audio.Play();
+                    audio.Play();
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
                         // ... instantiate the rocket facing right and set it's velocity to the right. 
@@ -105,7 +114,7 @@ public class Weapon : MonoBehaviour
                     canFire = false;
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
-                    //audio.Play();
+                    audio.Play();
                     isCharging = false;
                     // If the player is facing right...
                     if (playerCtrl.IsFacingRight)
@@ -125,6 +134,7 @@ public class Weapon : MonoBehaviour
                 {
                     playerCtrl.Ammo--;
                     anim.SetBool("Shooting", true);
+                    audio.Play();
                     CanShootNextBurst = false;
                     StartCoroutine(Burst());
                     canFire = false;
